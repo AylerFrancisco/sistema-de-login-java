@@ -26,19 +26,75 @@ public class PainelNotificacaoItem extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtaPanelNotificacaoMensagemDaNotificacao = new javax.swing.JTextArea();
+        lblPanelNotificacaoDataNotificacao = new javax.swing.JLabel();
+        radPanelNotificacaoLida = new javax.swing.JRadioButton();
+        lblPanelNotificacaoData = new javax.swing.JLabel();
+        lblPanelMensagemDaNotificacao = new javax.swing.JLabel();
+
+        txtaPanelNotificacaoMensagemDaNotificacao.setColumns(20);
+        txtaPanelNotificacaoMensagemDaNotificacao.setRows(5);
+        jScrollPane1.setViewportView(txtaPanelNotificacaoMensagemDaNotificacao);
+
+        lblPanelNotificacaoDataNotificacao.setText("Data da notificacao");
+
+        radPanelNotificacaoLida.setText("Lida");
+        radPanelNotificacaoLida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radPanelNotificacaoLidaActionPerformed(evt);
+            }
+        });
+
+        lblPanelNotificacaoData.setText("Data");
+
+        lblPanelMensagemDaNotificacao.setText("Mensagem da notificação:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPanelMensagemDaNotificacao)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblPanelNotificacaoDataNotificacao)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lblPanelNotificacaoData)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(radPanelNotificacaoLida))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblPanelMensagemDaNotificacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPanelNotificacaoDataNotificacao)
+                    .addComponent(radPanelNotificacaoLida)
+                    .addComponent(lblPanelNotificacaoData))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void radPanelNotificacaoLidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radPanelNotificacaoLidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radPanelNotificacaoLidaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPanelMensagemDaNotificacao;
+    private javax.swing.JLabel lblPanelNotificacaoData;
+    private javax.swing.JLabel lblPanelNotificacaoDataNotificacao;
+    private javax.swing.JRadioButton radPanelNotificacaoLida;
+    private javax.swing.JTextArea txtaPanelNotificacaoMensagemDaNotificacao;
     // End of variables declaration//GEN-END:variables
 }

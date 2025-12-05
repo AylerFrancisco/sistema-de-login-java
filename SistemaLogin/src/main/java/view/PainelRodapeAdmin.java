@@ -26,19 +26,66 @@ public class PainelRodapeAdmin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblPanelRodapeAdminUsuarioAdmisnistradorlbl = new javax.swing.JLabel();
+        lblPanelRodapeAdminNomedoUsuarioAdmisnistrador = new javax.swing.JLabel();
+        lblPanelRodapeAdminDataDoLoginlbl = new javax.swing.JLabel();
+        lblPanelRodapeAdminDataDoLogin = new javax.swing.JLabel();
+        lblPanelRodapeAdminUsuariosAtivoslbl = new javax.swing.JLabel();
+        lblPanelRodapeAdminUsuariosAtivos = new javax.swing.JLabel();
+
+        lblPanelRodapeAdminUsuarioAdmisnistradorlbl.setText("Usuario Administrador");
+
+        lblPanelRodapeAdminNomedoUsuarioAdmisnistrador.setText("Nome Do Usuario Administrador");
+
+        lblPanelRodapeAdminDataDoLoginlbl.setText("Data do Login");
+
+        lblPanelRodapeAdminDataDoLogin.setText("DateLoginAdminsitrador");
+
+        lblPanelRodapeAdminUsuariosAtivoslbl.setText("Usuarios ativos");
+
+        lblPanelRodapeAdminUsuariosAtivos.setText("NumeroUsuariosAtivos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblPanelRodapeAdminUsuarioAdmisnistradorlbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelRodapeAdminNomedoUsuarioAdmisnistrador)
+                .addGap(18, 18, 18)
+                .addComponent(lblPanelRodapeAdminDataDoLoginlbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelRodapeAdminDataDoLogin)
+                .addGap(18, 18, 18)
+                .addComponent(lblPanelRodapeAdminUsuariosAtivoslbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelRodapeAdminUsuariosAtivos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPanelRodapeAdminUsuarioAdmisnistradorlbl)
+                    .addComponent(lblPanelRodapeAdminNomedoUsuarioAdmisnistrador)
+                    .addComponent(lblPanelRodapeAdminDataDoLoginlbl)
+                    .addComponent(lblPanelRodapeAdminDataDoLogin)
+                    .addComponent(lblPanelRodapeAdminUsuariosAtivoslbl)
+                    .addComponent(lblPanelRodapeAdminUsuariosAtivos))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblPanelRodapeAdminDataDoLogin;
+    private javax.swing.JLabel lblPanelRodapeAdminDataDoLoginlbl;
+    private javax.swing.JLabel lblPanelRodapeAdminNomedoUsuarioAdmisnistrador;
+    private javax.swing.JLabel lblPanelRodapeAdminUsuarioAdmisnistradorlbl;
+    private javax.swing.JLabel lblPanelRodapeAdminUsuariosAtivos;
+    private javax.swing.JLabel lblPanelRodapeAdminUsuariosAtivoslbl;
     // End of variables declaration//GEN-END:variables
 }

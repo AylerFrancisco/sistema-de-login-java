@@ -26,19 +26,80 @@ public class PainelRodapeUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblPanelRodapeUsuarioNomeDoUsuariolbl = new javax.swing.JLabel();
+        lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome = new javax.swing.JLabel();
+        lblPanelRodapeUsuarioUserNamelbl = new javax.swing.JLabel();
+        lblPanelRodapeUsuarioUserName = new javax.swing.JLabel();
+        lblPanelRodapeUsuarioDataDeCadastrolbl = new javax.swing.JLabel();
+        lblPanelRodapeUsuarioDataDeCadastro = new javax.swing.JLabel();
+        lblPanelRodapeUsuarioNotificacoesnaoLidaslbl = new javax.swing.JLabel();
+        lblPanelRodapeUsuarioNotificacoesnaoLidas = new javax.swing.JLabel();
+
+        lblPanelRodapeUsuarioNomeDoUsuariolbl.setText("Nome do Usuario");
+
+        lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome.setText("UsuarioNome");
+
+        lblPanelRodapeUsuarioUserNamelbl.setText("User Name");
+
+        lblPanelRodapeUsuarioUserName.setText("UserName");
+
+        lblPanelRodapeUsuarioDataDeCadastrolbl.setText("Data de Cadastro");
+
+        lblPanelRodapeUsuarioDataDeCadastro.setText("DataDeCadastroDate");
+
+        lblPanelRodapeUsuarioNotificacoesnaoLidaslbl.setText("Notificações não lidas");
+
+        lblPanelRodapeUsuarioNotificacoesnaoLidas.setText("NumeroNotificaçõesNãoLidas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblPanelRodapeUsuarioNomeDoUsuariolbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome)
+                .addGap(26, 26, 26)
+                .addComponent(lblPanelRodapeUsuarioUserNamelbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelRodapeUsuarioUserName)
+                .addGap(30, 30, 30)
+                .addComponent(lblPanelRodapeUsuarioDataDeCadastrolbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelRodapeUsuarioDataDeCadastro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(lblPanelRodapeUsuarioNotificacoesnaoLidaslbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelRodapeUsuarioNotificacoesnaoLidas)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPanelRodapeUsuarioNomeDoUsuariolbl)
+                    .addComponent(lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome)
+                    .addComponent(lblPanelRodapeUsuarioUserNamelbl)
+                    .addComponent(lblPanelRodapeUsuarioUserName)
+                    .addComponent(lblPanelRodapeUsuarioNotificacoesnaoLidaslbl)
+                    .addComponent(lblPanelRodapeUsuarioNotificacoesnaoLidas)
+                    .addComponent(lblPanelRodapeUsuarioDataDeCadastrolbl)
+                    .addComponent(lblPanelRodapeUsuarioDataDeCadastro))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblPanelRodapeUsuarioDataDeCadastro;
+    private javax.swing.JLabel lblPanelRodapeUsuarioDataDeCadastrolbl;
+    private javax.swing.JLabel lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome;
+    private javax.swing.JLabel lblPanelRodapeUsuarioNomeDoUsuariolbl;
+    private javax.swing.JLabel lblPanelRodapeUsuarioNotificacoesnaoLidas;
+    private javax.swing.JLabel lblPanelRodapeUsuarioNotificacoesnaoLidaslbl;
+    private javax.swing.JLabel lblPanelRodapeUsuarioUserName;
+    private javax.swing.JLabel lblPanelRodapeUsuarioUserNamelbl;
     // End of variables declaration//GEN-END:variables
 }

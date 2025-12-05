@@ -26,19 +26,66 @@ public class PainelEstatisticas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblPanelEstatisticasTotalDeUsuarios = new javax.swing.JLabel();
+        lblPanelEstatisticasNumeroTotalDeUsuarios = new javax.swing.JLabel();
+        lblPanelEstatisticasUsuariosAutorizados = new javax.swing.JLabel();
+        lblPanelEstatisticasNumeroUsuariosAutorizados = new javax.swing.JLabel();
+        lblPanelEstatiscasUsuariosPendentes = new javax.swing.JLabel();
+        lblPanelEstatiscasNumeroUsuariosPendentes = new javax.swing.JLabel();
+
+        lblPanelEstatisticasTotalDeUsuarios.setText("Total de usuários");
+
+        lblPanelEstatisticasNumeroTotalDeUsuarios.setText("NTotalUsuarios");
+
+        lblPanelEstatisticasUsuariosAutorizados.setText("Usuarios Autorizados");
+
+        lblPanelEstatisticasNumeroUsuariosAutorizados.setText("NusuairosAutorizados");
+
+        lblPanelEstatiscasUsuariosPendentes.setText("Usuarios Pendentes");
+
+        lblPanelEstatiscasNumeroUsuariosPendentes.setText("NUsuariosPendentes");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblPanelEstatisticasTotalDeUsuarios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelEstatisticasNumeroTotalDeUsuarios)
+                .addGap(18, 18, 18)
+                .addComponent(lblPanelEstatisticasUsuariosAutorizados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPanelEstatisticasNumeroUsuariosAutorizados)
+                .addGap(18, 18, 18)
+                .addComponent(lblPanelEstatiscasUsuariosPendentes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblPanelEstatiscasNumeroUsuariosPendentes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPanelEstatisticasTotalDeUsuarios)
+                    .addComponent(lblPanelEstatiscasUsuariosPendentes)
+                    .addComponent(lblPanelEstatisticasUsuariosAutorizados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPanelEstatisticasNumeroTotalDeUsuarios)
+                    .addComponent(lblPanelEstatisticasNumeroUsuariosAutorizados)
+                    .addComponent(lblPanelEstatiscasNumeroUsuariosPendentes))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblPanelEstatiscasNumeroUsuariosPendentes;
+    private javax.swing.JLabel lblPanelEstatiscasUsuariosPendentes;
+    private javax.swing.JLabel lblPanelEstatisticasNumeroTotalDeUsuarios;
+    private javax.swing.JLabel lblPanelEstatisticasNumeroUsuariosAutorizados;
+    private javax.swing.JLabel lblPanelEstatisticasTotalDeUsuarios;
+    private javax.swing.JLabel lblPanelEstatisticasUsuariosAutorizados;
     // End of variables declaration//GEN-END:variables
 }

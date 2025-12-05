@@ -28,17 +28,46 @@ public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radConfiguracaoLogCSV = new javax.swing.JRadioButton();
+        radConfiguracaoLogJSONL = new javax.swing.JRadioButton();
+        btnConfiguracaoLogSalvar = new javax.swing.JButton();
+        lblConfiguracaoEscolhaOLog = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        radConfiguracaoLogCSV.setText("CSV");
+
+        radConfiguracaoLogJSONL.setText("JSONL");
+
+        btnConfiguracaoLogSalvar.setText("Salvar");
+
+        lblConfiguracaoEscolhaOLog.setText("Escolha como deve sair o Log:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblConfiguracaoEscolhaOLog)
+                    .addComponent(btnConfiguracaoLogSalvar)
+                    .addComponent(radConfiguracaoLogJSONL)
+                    .addComponent(radConfiguracaoLogCSV))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(lblConfiguracaoEscolhaOLog)
+                .addGap(18, 18, 18)
+                .addComponent(radConfiguracaoLogCSV)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radConfiguracaoLogJSONL)
+                .addGap(18, 18, 18)
+                .addComponent(btnConfiguracaoLogSalvar)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pack();
@@ -70,5 +99,9 @@ public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfiguracaoLogSalvar;
+    private javax.swing.JLabel lblConfiguracaoEscolhaOLog;
+    private javax.swing.JRadioButton radConfiguracaoLogCSV;
+    private javax.swing.JRadioButton radConfiguracaoLogJSONL;
     // End of variables declaration//GEN-END:variables
 }

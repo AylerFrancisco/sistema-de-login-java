@@ -28,17 +28,61 @@ public class AlterarSenhaViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        psswAlterarSenhaAtual = new javax.swing.JPasswordField();
+        psswAlterarSenhaNova = new javax.swing.JPasswordField();
+        btnAlterarSenhaAlterarSenha = new javax.swing.JButton();
+        lblAlterarSenhaSenhaAtual = new javax.swing.JLabel();
+        lblAlterarSenhaNovaSenha = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        psswAlterarSenhaAtual.setText("jPasswordField1");
+
+        psswAlterarSenhaNova.setText("jPasswordField2");
+
+        btnAlterarSenhaAlterarSenha.setText("Alterar Senha");
+
+        lblAlterarSenhaSenhaAtual.setText("Senha Atual");
+
+        lblAlterarSenhaNovaSenha.setText("Nova Senha");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(psswAlterarSenhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(134, 134, 134)
+                            .addComponent(btnAlterarSenhaAlterarSenha)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAlterarSenhaNovaSenha)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAlterarSenhaSenhaAtual)
+                                .addGap(27, 27, 27)
+                                .addComponent(psswAlterarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(psswAlterarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAlterarSenhaSenhaAtual))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(psswAlterarSenhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAlterarSenhaNovaSenha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAlterarSenhaAlterarSenha)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
@@ -70,5 +114,10 @@ public class AlterarSenhaViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarSenhaAlterarSenha;
+    private javax.swing.JLabel lblAlterarSenhaNovaSenha;
+    private javax.swing.JLabel lblAlterarSenhaSenhaAtual;
+    private javax.swing.JPasswordField psswAlterarSenhaAtual;
+    private javax.swing.JPasswordField psswAlterarSenhaNova;
     // End of variables declaration//GEN-END:variables
 }

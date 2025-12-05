@@ -16,13 +16,86 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioNomeDoUsuariolbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioUserNamelbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioUserName" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioDataDeCadastrolbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioDataDeCadastro" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioNotificacoesnaoLidaslbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPanelRodapeUsuarioNotificacoesnaoLidas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblPanelRodapeUsuarioNomeDoUsuariolbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPanelRodapeUsuarioUserNamelbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPanelRodapeUsuarioUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPanelRodapeUsuarioNotificacoesnaoLidaslbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPanelRodapeUsuarioNotificacoesnaoLidas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPanelRodapeUsuarioDataDeCadastrolbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPanelRodapeUsuarioDataDeCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioNomeDoUsuariolbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome do Usuario"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="UsuarioNome"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioUserNamelbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="User Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioUserName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="UserName"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioDataDeCadastrolbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Data de Cadastro"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioDataDeCadastro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DataDeCadastroDate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioNotificacoesnaoLidaslbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Notifica&#xe7;&#xf5;es n&#xe3;o lidas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPanelRodapeUsuarioNotificacoesnaoLidas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NumeroNotifica&#xe7;&#xf5;esN&#xe3;oLidas"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>

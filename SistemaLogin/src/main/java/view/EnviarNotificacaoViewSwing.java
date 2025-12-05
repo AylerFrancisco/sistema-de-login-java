@@ -28,21 +28,81 @@ public class EnviarNotificacaoViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cmbUsuarioNotificacao = new javax.swing.JComboBox<>();
+        lblUsuarioNotificacao = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtaMensagemNotificacao = new javax.swing.JTextArea();
+        btnEnviarNotificacao = new javax.swing.JToggleButton();
+        lblMensagemNotificacao = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        cmbUsuarioNotificacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario 1", "Usuario 2" }));
+        cmbUsuarioNotificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbUsuarioNotificacaoActionPerformed(evt);
+            }
+        });
+
+        lblUsuarioNotificacao.setText("Usuário:");
+
+        txtaMensagemNotificacao.setColumns(20);
+        txtaMensagemNotificacao.setRows(5);
+        jScrollPane1.setViewportView(txtaMensagemNotificacao);
+
+        btnEnviarNotificacao.setText("Enviar Notificação");
+        btnEnviarNotificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarNotificacaoActionPerformed(evt);
+            }
+        });
+
+        lblMensagemNotificacao.setText("Mensagem: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEnviarNotificacao)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMensagemNotificacao)
+                            .addComponent(lblUsuarioNotificacao))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbUsuarioNotificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbUsuarioNotificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuarioNotificacao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMensagemNotificacao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEnviarNotificacao)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnviarNotificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarNotificacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnviarNotificacaoActionPerformed
+
+    private void cmbUsuarioNotificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioNotificacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbUsuarioNotificacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +130,11 @@ public class EnviarNotificacaoViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnEnviarNotificacao;
+    private javax.swing.JComboBox<String> cmbUsuarioNotificacao;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblMensagemNotificacao;
+    private javax.swing.JLabel lblUsuarioNotificacao;
+    private javax.swing.JTextArea txtaMensagemNotificacao;
     // End of variables declaration//GEN-END:variables
 }

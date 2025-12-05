@@ -28,7 +28,19 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mnuVisualizarNotificacoesUser = new javax.swing.JMenu();
+        mnuAlterarSenhaUser = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        mnuVisualizarNotificacoesUser.setText("Notificações");
+        jMenuBar1.add(mnuVisualizarNotificacoesUser);
+
+        mnuAlterarSenhaUser.setText("Alterar Senha");
+        jMenuBar1.add(mnuAlterarSenhaUser);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -38,7 +50,7 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 277, Short.MAX_VALUE)
         );
 
         pack();
@@ -70,5 +82,8 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu mnuAlterarSenhaUser;
+    private javax.swing.JMenu mnuVisualizarNotificacoesUser;
     // End of variables declaration//GEN-END:variables
 }
