@@ -28,17 +28,57 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblBemvindo = new javax.swing.JLabel();
+        lblNomeUsuarioAdmin = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mnuCadastarUsuarioAdmin = new javax.swing.JMenu();
+        mnuAutorizarUsuariosAdmin = new javax.swing.JMenu();
+        mnuListarUsuariosAdmin = new javax.swing.JMenu();
+        mnuNotificacaoAdmin = new javax.swing.JMenu();
+        mnuConfigurarLogAdmin = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblBemvindo.setText("Bem vindo !");
+
+        lblNomeUsuarioAdmin.setText("Nome do cara");
+
+        mnuCadastarUsuarioAdmin.setText("Cadastrar Usuário");
+        jMenuBar1.add(mnuCadastarUsuarioAdmin);
+
+        mnuAutorizarUsuariosAdmin.setText("Autorizar Usuários");
+        jMenuBar1.add(mnuAutorizarUsuariosAdmin);
+
+        mnuListarUsuariosAdmin.setText("Listar Usuários");
+        jMenuBar1.add(mnuListarUsuariosAdmin);
+
+        mnuNotificacaoAdmin.setText("Enviar Notificação");
+        jMenuBar1.add(mnuNotificacaoAdmin);
+
+        mnuConfigurarLogAdmin.setText("Configurar Log");
+        jMenuBar1.add(mnuConfigurarLogAdmin);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(175, Short.MAX_VALUE)
+                .addComponent(lblBemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNomeUsuarioAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeUsuarioAdmin))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         pack();
@@ -70,5 +110,13 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lblBemvindo;
+    private javax.swing.JLabel lblNomeUsuarioAdmin;
+    private javax.swing.JMenu mnuAutorizarUsuariosAdmin;
+    private javax.swing.JMenu mnuCadastarUsuarioAdmin;
+    private javax.swing.JMenu mnuConfigurarLogAdmin;
+    private javax.swing.JMenu mnuListarUsuariosAdmin;
+    private javax.swing.JMenu mnuNotificacaoAdmin;
     // End of variables declaration//GEN-END:variables
 }
