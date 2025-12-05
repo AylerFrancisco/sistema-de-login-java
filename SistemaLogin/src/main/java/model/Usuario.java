@@ -9,5 +9,7 @@ package model;
  * @author Ayler
  */
 public class Usuario {
-    
+    private String nomeUsuario;
+    private String senhaUsuario;
+    private String userName;
 }
