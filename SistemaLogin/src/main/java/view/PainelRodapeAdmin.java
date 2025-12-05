@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Ayler
@@ -88,4 +90,52 @@ public class PainelRodapeAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel lblPanelRodapeAdminUsuariosAtivos;
     private javax.swing.JLabel lblPanelRodapeAdminUsuariosAtivoslbl;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getLblPanelRodapeAdminDataDoLogin() {
+        return lblPanelRodapeAdminDataDoLogin;
+    }
+
+    public void setLblPanelRodapeAdminDataDoLogin(JLabel lblPanelRodapeAdminDataDoLogin) {
+        this.lblPanelRodapeAdminDataDoLogin = lblPanelRodapeAdminDataDoLogin;
+    }
+
+    public JLabel getLblPanelRodapeAdminDataDoLoginlbl() {
+        return lblPanelRodapeAdminDataDoLoginlbl;
+    }
+
+    public void setLblPanelRodapeAdminDataDoLoginlbl(JLabel lblPanelRodapeAdminDataDoLoginlbl) {
+        this.lblPanelRodapeAdminDataDoLoginlbl = lblPanelRodapeAdminDataDoLoginlbl;
+    }
+
+    public JLabel getLblPanelRodapeAdminNomedoUsuarioAdmisnistrador() {
+        return lblPanelRodapeAdminNomedoUsuarioAdmisnistrador;
+    }
+
+    public void setLblPanelRodapeAdminNomedoUsuarioAdmisnistrador(JLabel lblPanelRodapeAdminNomedoUsuarioAdmisnistrador) {
+        this.lblPanelRodapeAdminNomedoUsuarioAdmisnistrador = lblPanelRodapeAdminNomedoUsuarioAdmisnistrador;
+    }
+
+    public JLabel getLblPanelRodapeAdminUsuarioAdmisnistradorlbl() {
+        return lblPanelRodapeAdminUsuarioAdmisnistradorlbl;
+    }
+
+    public void setLblPanelRodapeAdminUsuarioAdmisnistradorlbl(JLabel lblPanelRodapeAdminUsuarioAdmisnistradorlbl) {
+        this.lblPanelRodapeAdminUsuarioAdmisnistradorlbl = lblPanelRodapeAdminUsuarioAdmisnistradorlbl;
+    }
+
+    public JLabel getLblPanelRodapeAdminUsuariosAtivos() {
+        return lblPanelRodapeAdminUsuariosAtivos;
+    }
+
+    public void setLblPanelRodapeAdminUsuariosAtivos(JLabel lblPanelRodapeAdminUsuariosAtivos) {
+        this.lblPanelRodapeAdminUsuariosAtivos = lblPanelRodapeAdminUsuariosAtivos;
+    }
+
+    public JLabel getLblPanelRodapeAdminUsuariosAtivoslbl() {
+        return lblPanelRodapeAdminUsuariosAtivoslbl;
+    }
+
+    public void setLblPanelRodapeAdminUsuariosAtivoslbl(JLabel lblPanelRodapeAdminUsuariosAtivoslbl) {
+        this.lblPanelRodapeAdminUsuariosAtivoslbl = lblPanelRodapeAdminUsuariosAtivoslbl;
+    }
 }

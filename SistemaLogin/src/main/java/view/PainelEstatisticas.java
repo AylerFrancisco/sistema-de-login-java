@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Ayler
@@ -88,4 +90,52 @@ public class PainelEstatisticas extends javax.swing.JPanel {
     private javax.swing.JLabel lblPanelEstatisticasTotalDeUsuarios;
     private javax.swing.JLabel lblPanelEstatisticasUsuariosAutorizados;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getLblPanelEstatiscasNumeroUsuariosPendentes() {
+        return lblPanelEstatiscasNumeroUsuariosPendentes;
+    }
+
+    public void setLblPanelEstatiscasNumeroUsuariosPendentes(JLabel lblPanelEstatiscasNumeroUsuariosPendentes) {
+        this.lblPanelEstatiscasNumeroUsuariosPendentes = lblPanelEstatiscasNumeroUsuariosPendentes;
+    }
+
+    public JLabel getLblPanelEstatiscasUsuariosPendentes() {
+        return lblPanelEstatiscasUsuariosPendentes;
+    }
+
+    public void setLblPanelEstatiscasUsuariosPendentes(JLabel lblPanelEstatiscasUsuariosPendentes) {
+        this.lblPanelEstatiscasUsuariosPendentes = lblPanelEstatiscasUsuariosPendentes;
+    }
+
+    public JLabel getLblPanelEstatisticasNumeroTotalDeUsuarios() {
+        return lblPanelEstatisticasNumeroTotalDeUsuarios;
+    }
+
+    public void setLblPanelEstatisticasNumeroTotalDeUsuarios(JLabel lblPanelEstatisticasNumeroTotalDeUsuarios) {
+        this.lblPanelEstatisticasNumeroTotalDeUsuarios = lblPanelEstatisticasNumeroTotalDeUsuarios;
+    }
+
+    public JLabel getLblPanelEstatisticasNumeroUsuariosAutorizados() {
+        return lblPanelEstatisticasNumeroUsuariosAutorizados;
+    }
+
+    public void setLblPanelEstatisticasNumeroUsuariosAutorizados(JLabel lblPanelEstatisticasNumeroUsuariosAutorizados) {
+        this.lblPanelEstatisticasNumeroUsuariosAutorizados = lblPanelEstatisticasNumeroUsuariosAutorizados;
+    }
+
+    public JLabel getLblPanelEstatisticasTotalDeUsuarios() {
+        return lblPanelEstatisticasTotalDeUsuarios;
+    }
+
+    public void setLblPanelEstatisticasTotalDeUsuarios(JLabel lblPanelEstatisticasTotalDeUsuarios) {
+        this.lblPanelEstatisticasTotalDeUsuarios = lblPanelEstatisticasTotalDeUsuarios;
+    }
+
+    public JLabel getLblPanelEstatisticasUsuariosAutorizados() {
+        return lblPanelEstatisticasUsuariosAutorizados;
+    }
+
+    public void setLblPanelEstatisticasUsuariosAutorizados(JLabel lblPanelEstatisticasUsuariosAutorizados) {
+        this.lblPanelEstatisticasUsuariosAutorizados = lblPanelEstatisticasUsuariosAutorizados;
+    }
 }

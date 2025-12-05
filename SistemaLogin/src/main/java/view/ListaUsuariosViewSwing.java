@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 /**
  *
  * @author Ayler
@@ -103,4 +107,28 @@ public class ListaUsuariosViewSwing extends javax.swing.JFrame {
     private javax.swing.JButton btnListaUsuariosVoltar;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getJtableListaUsuarios() {
+        return JtableListaUsuarios;
+    }
+
+    public void setJtableListaUsuarios(JTable JtableListaUsuarios) {
+        this.JtableListaUsuarios = JtableListaUsuarios;
+    }
+
+    public JButton getBtnListaUsuariosVoltar() {
+        return btnListaUsuariosVoltar;
+    }
+
+    public void setBtnListaUsuariosVoltar(JButton btnListaUsuariosVoltar) {
+        this.btnListaUsuariosVoltar = btnListaUsuariosVoltar;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
 }

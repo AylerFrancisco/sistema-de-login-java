@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+
 /**
  *
  * @author Ayler
@@ -120,4 +124,44 @@ public class AlterarSenhaViewSwing extends javax.swing.JFrame {
     private javax.swing.JPasswordField psswAlterarSenhaAtual;
     private javax.swing.JPasswordField psswAlterarSenhaNova;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnAlterarSenhaAlterarSenha() {
+        return btnAlterarSenhaAlterarSenha;
+    }
+
+    public void setBtnAlterarSenhaAlterarSenha(JButton btnAlterarSenhaAlterarSenha) {
+        this.btnAlterarSenhaAlterarSenha = btnAlterarSenhaAlterarSenha;
+    }
+
+    public JLabel getLblAlterarSenhaNovaSenha() {
+        return lblAlterarSenhaNovaSenha;
+    }
+
+    public void setLblAlterarSenhaNovaSenha(JLabel lblAlterarSenhaNovaSenha) {
+        this.lblAlterarSenhaNovaSenha = lblAlterarSenhaNovaSenha;
+    }
+
+    public JLabel getLblAlterarSenhaSenhaAtual() {
+        return lblAlterarSenhaSenhaAtual;
+    }
+
+    public void setLblAlterarSenhaSenhaAtual(JLabel lblAlterarSenhaSenhaAtual) {
+        this.lblAlterarSenhaSenhaAtual = lblAlterarSenhaSenhaAtual;
+    }
+
+    public JPasswordField getPsswAlterarSenhaAtual() {
+        return psswAlterarSenhaAtual;
+    }
+
+    public void setPsswAlterarSenhaAtual(JPasswordField psswAlterarSenhaAtual) {
+        this.psswAlterarSenhaAtual = psswAlterarSenhaAtual;
+    }
+
+    public JPasswordField getPsswAlterarSenhaNova() {
+        return psswAlterarSenhaNova;
+    }
+
+    public void setPsswAlterarSenhaNova(JPasswordField psswAlterarSenhaNova) {
+        this.psswAlterarSenhaNova = psswAlterarSenhaNova;
+    }
 }

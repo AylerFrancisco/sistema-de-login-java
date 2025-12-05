@@ -4,6 +4,12 @@
  */
 package view;
 
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JToggleButton;
+
 /**
  *
  * @author Ayler
@@ -137,4 +143,52 @@ public class EnviarNotificacaoViewSwing extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuarioNotificacao;
     private javax.swing.JTextArea txtaMensagemNotificacao;
     // End of variables declaration//GEN-END:variables
+
+    public JToggleButton getBtnEnviarNotificacao() {
+        return btnEnviarNotificacao;
+    }
+
+    public void setBtnEnviarNotificacao(JToggleButton btnEnviarNotificacao) {
+        this.btnEnviarNotificacao = btnEnviarNotificacao;
+    }
+
+    public JComboBox<String> getCmbUsuarioNotificacao() {
+        return cmbUsuarioNotificacao;
+    }
+
+    public void setCmbUsuarioNotificacao(JComboBox<String> cmbUsuarioNotificacao) {
+        this.cmbUsuarioNotificacao = cmbUsuarioNotificacao;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JLabel getLblMensagemNotificacao() {
+        return lblMensagemNotificacao;
+    }
+
+    public void setLblMensagemNotificacao(JLabel lblMensagemNotificacao) {
+        this.lblMensagemNotificacao = lblMensagemNotificacao;
+    }
+
+    public JLabel getLblUsuarioNotificacao() {
+        return lblUsuarioNotificacao;
+    }
+
+    public void setLblUsuarioNotificacao(JLabel lblUsuarioNotificacao) {
+        this.lblUsuarioNotificacao = lblUsuarioNotificacao;
+    }
+
+    public JTextArea getTxtaMensagemNotificacao() {
+        return txtaMensagemNotificacao;
+    }
+
+    public void setTxtaMensagemNotificacao(JTextArea txtaMensagemNotificacao) {
+        this.txtaMensagemNotificacao = txtaMensagemNotificacao;
+    }
 }

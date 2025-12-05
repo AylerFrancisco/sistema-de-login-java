@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 /**
  *
  * @author Ayler
@@ -125,4 +129,36 @@ public class UsuariosPendentesViewSwing extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnAutorizar() {
+        return btnAutorizar;
+    }
+
+    public void setBtnAutorizar(JButton btnAutorizar) {
+        this.btnAutorizar = btnAutorizar;
+    }
+
+    public JButton getBtnExcluir() {
+        return btnExcluir;
+    }
+
+    public void setBtnExcluir(JButton btnExcluir) {
+        this.btnExcluir = btnExcluir;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
 }

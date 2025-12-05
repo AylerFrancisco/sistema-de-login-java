@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Ayler
@@ -104,4 +108,36 @@ public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
     private javax.swing.JRadioButton radConfiguracaoLogCSV;
     private javax.swing.JRadioButton radConfiguracaoLogJSONL;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnConfiguracaoLogSalvar() {
+        return btnConfiguracaoLogSalvar;
+    }
+
+    public void setBtnConfiguracaoLogSalvar(JButton btnConfiguracaoLogSalvar) {
+        this.btnConfiguracaoLogSalvar = btnConfiguracaoLogSalvar;
+    }
+
+    public JLabel getLblConfiguracaoEscolhaOLog() {
+        return lblConfiguracaoEscolhaOLog;
+    }
+
+    public void setLblConfiguracaoEscolhaOLog(JLabel lblConfiguracaoEscolhaOLog) {
+        this.lblConfiguracaoEscolhaOLog = lblConfiguracaoEscolhaOLog;
+    }
+
+    public JRadioButton getRadConfiguracaoLogCSV() {
+        return radConfiguracaoLogCSV;
+    }
+
+    public void setRadConfiguracaoLogCSV(JRadioButton radConfiguracaoLogCSV) {
+        this.radConfiguracaoLogCSV = radConfiguracaoLogCSV;
+    }
+
+    public JRadioButton getRadConfiguracaoLogJSONL() {
+        return radConfiguracaoLogJSONL;
+    }
+
+    public void setRadConfiguracaoLogJSONL(JRadioButton radConfiguracaoLogJSONL) {
+        this.radConfiguracaoLogJSONL = radConfiguracaoLogJSONL;
+    }
 }

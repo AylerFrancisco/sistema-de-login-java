@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+
 /**
  *
  * @author Ayler
@@ -86,4 +89,28 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
     private javax.swing.JMenu mnuAlterarSenhaUser;
     private javax.swing.JMenu mnuVisualizarNotificacoesUser;
     // End of variables declaration//GEN-END:variables
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenu getMnuAlterarSenhaUser() {
+        return mnuAlterarSenhaUser;
+    }
+
+    public void setMnuAlterarSenhaUser(JMenu mnuAlterarSenhaUser) {
+        this.mnuAlterarSenhaUser = mnuAlterarSenhaUser;
+    }
+
+    public JMenu getMnuVisualizarNotificacoesUser() {
+        return mnuVisualizarNotificacoesUser;
+    }
+
+    public void setMnuVisualizarNotificacoesUser(JMenu mnuVisualizarNotificacoesUser) {
+        this.mnuVisualizarNotificacoesUser = mnuVisualizarNotificacoesUser;
+    }
 }

@@ -4,6 +4,11 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ayler
@@ -118,4 +123,52 @@ public class LoginViewSwing extends javax.swing.JFrame {
     private javax.swing.JPasswordField psswSenhaField;
     private javax.swing.JTextField txtUsernameField;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
+
+    public void setBtnLogin(JButton btnLogin) {
+        this.btnLogin = btnLogin;
+    }
+
+    public JLabel getLblErro() {
+        return lblErro;
+    }
+
+    public void setLblErro(JLabel lblErro) {
+        this.lblErro = lblErro;
+    }
+
+    public JLabel getLblUsuario() {
+        return lblUsuario;
+    }
+
+    public void setLblUsuario(JLabel lblUsuario) {
+        this.lblUsuario = lblUsuario;
+    }
+
+    public JLabel getLblsenha() {
+        return lblsenha;
+    }
+
+    public void setLblsenha(JLabel lblsenha) {
+        this.lblsenha = lblsenha;
+    }
+
+    public JPasswordField getPsswSenhaField() {
+        return psswSenhaField;
+    }
+
+    public void setPsswSenhaField(JPasswordField psswSenhaField) {
+        this.psswSenhaField = psswSenhaField;
+    }
+
+    public JTextField getTxtUsernameField() {
+        return txtUsernameField;
+    }
+
+    public void setTxtUsernameField(JTextField txtUsernameField) {
+        this.txtUsernameField = txtUsernameField;
+    }
 }

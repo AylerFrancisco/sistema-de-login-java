@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Ayler
@@ -102,4 +104,68 @@ public class PainelRodapeUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel lblPanelRodapeUsuarioUserName;
     private javax.swing.JLabel lblPanelRodapeUsuarioUserNamelbl;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getLblPanelRodapeUsuarioDataDeCadastro() {
+        return lblPanelRodapeUsuarioDataDeCadastro;
+    }
+
+    public void setLblPanelRodapeUsuarioDataDeCadastro(JLabel lblPanelRodapeUsuarioDataDeCadastro) {
+        this.lblPanelRodapeUsuarioDataDeCadastro = lblPanelRodapeUsuarioDataDeCadastro;
+    }
+
+    public JLabel getLblPanelRodapeUsuarioDataDeCadastrolbl() {
+        return lblPanelRodapeUsuarioDataDeCadastrolbl;
+    }
+
+    public void setLblPanelRodapeUsuarioDataDeCadastrolbl(JLabel lblPanelRodapeUsuarioDataDeCadastrolbl) {
+        this.lblPanelRodapeUsuarioDataDeCadastrolbl = lblPanelRodapeUsuarioDataDeCadastrolbl;
+    }
+
+    public JLabel getLblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome() {
+        return lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome;
+    }
+
+    public void setLblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome(JLabel lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome) {
+        this.lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome = lblPanelRodapeUsuarioNomeDoUsuarioUsuarioNome;
+    }
+
+    public JLabel getLblPanelRodapeUsuarioNomeDoUsuariolbl() {
+        return lblPanelRodapeUsuarioNomeDoUsuariolbl;
+    }
+
+    public void setLblPanelRodapeUsuarioNomeDoUsuariolbl(JLabel lblPanelRodapeUsuarioNomeDoUsuariolbl) {
+        this.lblPanelRodapeUsuarioNomeDoUsuariolbl = lblPanelRodapeUsuarioNomeDoUsuariolbl;
+    }
+
+    public JLabel getLblPanelRodapeUsuarioNotificacoesnaoLidas() {
+        return lblPanelRodapeUsuarioNotificacoesnaoLidas;
+    }
+
+    public void setLblPanelRodapeUsuarioNotificacoesnaoLidas(JLabel lblPanelRodapeUsuarioNotificacoesnaoLidas) {
+        this.lblPanelRodapeUsuarioNotificacoesnaoLidas = lblPanelRodapeUsuarioNotificacoesnaoLidas;
+    }
+
+    public JLabel getLblPanelRodapeUsuarioNotificacoesnaoLidaslbl() {
+        return lblPanelRodapeUsuarioNotificacoesnaoLidaslbl;
+    }
+
+    public void setLblPanelRodapeUsuarioNotificacoesnaoLidaslbl(JLabel lblPanelRodapeUsuarioNotificacoesnaoLidaslbl) {
+        this.lblPanelRodapeUsuarioNotificacoesnaoLidaslbl = lblPanelRodapeUsuarioNotificacoesnaoLidaslbl;
+    }
+
+    public JLabel getLblPanelRodapeUsuarioUserName() {
+        return lblPanelRodapeUsuarioUserName;
+    }
+
+    public void setLblPanelRodapeUsuarioUserName(JLabel lblPanelRodapeUsuarioUserName) {
+        this.lblPanelRodapeUsuarioUserName = lblPanelRodapeUsuarioUserName;
+    }
+
+    public JLabel getLblPanelRodapeUsuarioUserNamelbl() {
+        return lblPanelRodapeUsuarioUserNamelbl;
+    }
+
+    public void setLblPanelRodapeUsuarioUserNamelbl(JLabel lblPanelRodapeUsuarioUserNamelbl) {
+        this.lblPanelRodapeUsuarioUserNamelbl = lblPanelRodapeUsuarioUserNamelbl;
+    }
 }

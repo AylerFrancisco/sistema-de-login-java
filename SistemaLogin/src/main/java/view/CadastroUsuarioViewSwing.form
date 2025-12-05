@@ -33,11 +33,9 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnCadastrar" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="psswSenhaCadastro" max="32767" attributes="0"/>
-                      <Component id="txtCadastroNome" max="32767" attributes="0"/>
-                      <Component id="txtCadastroUsername" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="psswSenhaCadastro" max="32767" attributes="0"/>
+                  <Component id="txtCadastroNome" max="32767" attributes="0"/>
+                  <Component id="txtCadastroUsername" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="139" max="32767" attributes="0"/>
           </Group>

@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+
 /**
  *
  * @author Ayler
@@ -119,4 +123,68 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     private javax.swing.JMenu mnuListarUsuariosAdmin;
     private javax.swing.JMenu mnuNotificacaoAdmin;
     // End of variables declaration//GEN-END:variables
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JLabel getLblBemvindo() {
+        return lblBemvindo;
+    }
+
+    public void setLblBemvindo(JLabel lblBemvindo) {
+        this.lblBemvindo = lblBemvindo;
+    }
+
+    public JLabel getLblNomeUsuarioAdmin() {
+        return lblNomeUsuarioAdmin;
+    }
+
+    public void setLblNomeUsuarioAdmin(JLabel lblNomeUsuarioAdmin) {
+        this.lblNomeUsuarioAdmin = lblNomeUsuarioAdmin;
+    }
+
+    public JMenu getMnuAutorizarUsuariosAdmin() {
+        return mnuAutorizarUsuariosAdmin;
+    }
+
+    public void setMnuAutorizarUsuariosAdmin(JMenu mnuAutorizarUsuariosAdmin) {
+        this.mnuAutorizarUsuariosAdmin = mnuAutorizarUsuariosAdmin;
+    }
+
+    public JMenu getMnuCadastarUsuarioAdmin() {
+        return mnuCadastarUsuarioAdmin;
+    }
+
+    public void setMnuCadastarUsuarioAdmin(JMenu mnuCadastarUsuarioAdmin) {
+        this.mnuCadastarUsuarioAdmin = mnuCadastarUsuarioAdmin;
+    }
+
+    public JMenu getMnuConfigurarLogAdmin() {
+        return mnuConfigurarLogAdmin;
+    }
+
+    public void setMnuConfigurarLogAdmin(JMenu mnuConfigurarLogAdmin) {
+        this.mnuConfigurarLogAdmin = mnuConfigurarLogAdmin;
+    }
+
+    public JMenu getMnuListarUsuariosAdmin() {
+        return mnuListarUsuariosAdmin;
+    }
+
+    public void setMnuListarUsuariosAdmin(JMenu mnuListarUsuariosAdmin) {
+        this.mnuListarUsuariosAdmin = mnuListarUsuariosAdmin;
+    }
+
+    public JMenu getMnuNotificacaoAdmin() {
+        return mnuNotificacaoAdmin;
+    }
+
+    public void setMnuNotificacaoAdmin(JMenu mnuNotificacaoAdmin) {
+        this.mnuNotificacaoAdmin = mnuNotificacaoAdmin;
+    }
 }

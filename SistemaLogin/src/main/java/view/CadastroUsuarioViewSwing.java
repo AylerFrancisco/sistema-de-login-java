@@ -4,6 +4,11 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ayler
@@ -134,4 +139,60 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
     private javax.swing.JTextField txtCadastroNome;
     private javax.swing.JTextField txtCadastroUsername;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnCadastrar() {
+        return btnCadastrar;
+    }
+
+    public void setBtnCadastrar(JButton btnCadastrar) {
+        this.btnCadastrar = btnCadastrar;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JPasswordField getPsswSenhaCadastro() {
+        return psswSenhaCadastro;
+    }
+
+    public void setPsswSenhaCadastro(JPasswordField psswSenhaCadastro) {
+        this.psswSenhaCadastro = psswSenhaCadastro;
+    }
+
+    public JTextField getTxtCadastroNome() {
+        return txtCadastroNome;
+    }
+
+    public void setTxtCadastroNome(JTextField txtCadastroNome) {
+        this.txtCadastroNome = txtCadastroNome;
+    }
+
+    public JTextField getTxtCadastroUsername() {
+        return txtCadastroUsername;
+    }
+
+    public void setTxtCadastroUsername(JTextField txtCadastroUsername) {
+        this.txtCadastroUsername = txtCadastroUsername;
+    }
 }

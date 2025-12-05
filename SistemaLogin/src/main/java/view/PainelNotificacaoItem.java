@@ -4,6 +4,11 @@
  */
 package view;
 
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Ayler
@@ -97,4 +102,52 @@ public class PainelNotificacaoItem extends javax.swing.JPanel {
     private javax.swing.JRadioButton radPanelNotificacaoLida;
     private javax.swing.JTextArea txtaPanelNotificacaoMensagemDaNotificacao;
     // End of variables declaration//GEN-END:variables
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JLabel getLblPanelMensagemDaNotificacao() {
+        return lblPanelMensagemDaNotificacao;
+    }
+
+    public void setLblPanelMensagemDaNotificacao(JLabel lblPanelMensagemDaNotificacao) {
+        this.lblPanelMensagemDaNotificacao = lblPanelMensagemDaNotificacao;
+    }
+
+    public JLabel getLblPanelNotificacaoData() {
+        return lblPanelNotificacaoData;
+    }
+
+    public void setLblPanelNotificacaoData(JLabel lblPanelNotificacaoData) {
+        this.lblPanelNotificacaoData = lblPanelNotificacaoData;
+    }
+
+    public JLabel getLblPanelNotificacaoDataNotificacao() {
+        return lblPanelNotificacaoDataNotificacao;
+    }
+
+    public void setLblPanelNotificacaoDataNotificacao(JLabel lblPanelNotificacaoDataNotificacao) {
+        this.lblPanelNotificacaoDataNotificacao = lblPanelNotificacaoDataNotificacao;
+    }
+
+    public JRadioButton getRadPanelNotificacaoLida() {
+        return radPanelNotificacaoLida;
+    }
+
+    public void setRadPanelNotificacaoLida(JRadioButton radPanelNotificacaoLida) {
+        this.radPanelNotificacaoLida = radPanelNotificacaoLida;
+    }
+
+    public JTextArea getTxtaPanelNotificacaoMensagemDaNotificacao() {
+        return txtaPanelNotificacaoMensagemDaNotificacao;
+    }
+
+    public void setTxtaPanelNotificacaoMensagemDaNotificacao(JTextArea txtaPanelNotificacaoMensagemDaNotificacao) {
+        this.txtaPanelNotificacaoMensagemDaNotificacao = txtaPanelNotificacaoMensagemDaNotificacao;
+    }
 }

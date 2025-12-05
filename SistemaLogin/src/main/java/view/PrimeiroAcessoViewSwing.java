@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ayler
@@ -111,4 +115,44 @@ public class PrimeiroAcessoViewSwing extends javax.swing.JFrame {
     private javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnCadastrar() {
+        return btnCadastrar;
+    }
+
+    public void setBtnCadastrar(JButton btnCadastrar) {
+        this.btnCadastrar = btnCadastrar;
+    }
+
+    public JPasswordField getPsswsenha() {
+        return psswsenha;
+    }
+
+    public void setPsswsenha(JPasswordField psswsenha) {
+        this.psswsenha = psswsenha;
+    }
+
+    public JPasswordField getPsswsenhaConfirma() {
+        return psswsenhaConfirma;
+    }
+
+    public void setPsswsenhaConfirma(JPasswordField psswsenhaConfirma) {
+        this.psswsenhaConfirma = psswsenhaConfirma;
+    }
+
+    public JTextField getTxtnome() {
+        return txtnome;
+    }
+
+    public void setTxtnome(JTextField txtnome) {
+        this.txtnome = txtnome;
+    }
+
+    public JTextField getTxtusername() {
+        return txtusername;
+    }
+
+    public void setTxtusername(JTextField txtusername) {
+        this.txtusername = txtusername;
+    }
 }

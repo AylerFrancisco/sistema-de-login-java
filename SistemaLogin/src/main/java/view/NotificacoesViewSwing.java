@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author Ayler
@@ -88,4 +91,20 @@ public class NotificacoesViewSwing extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPanelNotificacaoViewMostraNotificacao;
     private javax.swing.JLabel lblPanelNotificacaoViewUltimasNotificoes;
     // End of variables declaration//GEN-END:variables
+
+    public JScrollPane getjScrollPanelNotificacaoViewMostraNotificacao() {
+        return jScrollPanelNotificacaoViewMostraNotificacao;
+    }
+
+    public void setjScrollPanelNotificacaoViewMostraNotificacao(JScrollPane jScrollPanelNotificacaoViewMostraNotificacao) {
+        this.jScrollPanelNotificacaoViewMostraNotificacao = jScrollPanelNotificacaoViewMostraNotificacao;
+    }
+
+    public JLabel getLblPanelNotificacaoViewUltimasNotificoes() {
+        return lblPanelNotificacaoViewUltimasNotificoes;
+    }
+
+    public void setLblPanelNotificacaoViewUltimasNotificoes(JLabel lblPanelNotificacaoViewUltimasNotificoes) {
+        this.lblPanelNotificacaoViewUltimasNotificoes = lblPanelNotificacaoViewUltimasNotificoes;
+    }
 }
