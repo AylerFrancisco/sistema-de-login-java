@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dao;
+package adapter;
 
 /**
  *
- * @author Ayler
+ * @author lukian.borges
  */
-public class DatabaseConnection {
+public interface LogAdapter {
+    
+      void log(String operation, String nome, String user);
     
 }
