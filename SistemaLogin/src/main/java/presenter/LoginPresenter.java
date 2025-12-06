@@ -8,20 +8,21 @@ package presenter;
  *
  * @author Ayler
  */
+import repository.IUsuarioRepository;
+import repository.UsuarioRepositorySQLite;
 import view.LoginViewSwing;
 import view.AdminHomeViewSwing;
 import view.UserHomeViewSwing;
-import repository.IUserRepository;
-import repository.UserRepositorySQLite;
+
 
 public class LoginPresenter {
 
     private final LoginViewSwing view;
-    private final IUserRepository userRepository;
+    private final IUsuarioRepository iUsuarioRepository;
 
     public LoginPresenter(LoginViewSwing view) {
         this.view = view;
-        this.userRepository = new UserRepositorySQLite();
+        this.iUsuarioRepository = new UsuarioRepositorySQLite();
 
         configurarListeners();
     }
@@ -40,7 +41,7 @@ public class LoginPresenter {
         }
 
         try {
-            var usuario = userRepository.buscarPorUsername(username);
+            var usuario = iUsuarioRepository.consultar(username);
 
             if (usuario == null) {
                 view.getLblErro().setText("Usuário não encontrado.");
@@ -52,7 +53,7 @@ public class LoginPresenter {
                 return;
             }
 
-            abrirTelaInicial(usuario.getTipo());  // admin ou user
+            abrirTelaInicial(usuario.getTipoCadastro());  // admin ou user
             view.dispose();
 
         } catch (Exception ex) {
