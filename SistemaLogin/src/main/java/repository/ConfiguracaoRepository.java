@@ -8,6 +8,6 @@ package repository;
  *
  * @author Ayler
  */
-public class ConfiguracaoRepository {
-    
+public class ConfiguracaoRepository implements IConfiguracaoRepository {
+
 }

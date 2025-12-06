@@ -9,5 +9,5 @@ package repository;
  * @author Ayler
  */
 public class NotificacaoRepository {
-    
+
 }
