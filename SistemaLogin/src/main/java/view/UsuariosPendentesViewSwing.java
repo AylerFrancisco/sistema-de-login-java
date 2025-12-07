@@ -21,7 +21,15 @@ public class UsuariosPendentesViewSwing extends javax.swing.JFrame {
      */
     public UsuariosPendentesViewSwing() {
         initComponents();
+        configurarTabela();
     }
+    
+    private void configurarTabela() {
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        new Object[][]{},
+        new String[]{"Nome do Usuário", "Status", "ID"}
+    ));
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

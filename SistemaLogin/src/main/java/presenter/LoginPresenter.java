@@ -22,10 +22,13 @@ import view.UserHomeViewSwing;
 public class LoginPresenter {
 
     private final LoginViewSwing loginView;
+    private AdminHomeViewSwing adminHomeViewSwing;
     //private final IUsuarioRepository iUsuarioRepository;
     private UserHomePresenter userHomePresenter;
+    private AdminHomePresenter adminHomePresenter;
     private CadastroPresenter cadastroPresenter;
     private final LoginService loginService;
+    private Usuario usuarioGlobal;
 
       public LoginPresenter(IUsuarioRepository usuarioRepository) {
         this.loginView = new LoginViewSwing();
@@ -42,13 +45,26 @@ public class LoginPresenter {
 
             try {
                 Optional<Usuario> usuario = loginService.autenticar(user, senha);
+                this.usuarioGlobal = usuario.get();
                 if (usuario.isPresent()) {
                     loginView.dispose();
 
-                                       this.userHomePresenter = new UserHomePresenter(
-                            usuario.get(),
-                            UsuarioRepositorySQLite.getInstance()
-                    );
+                    if (this.usuarioGlobal != null) {
+                        if ("ADMIN_MASTER".equals(this.usuarioGlobal.getTipoCadastro())) {
+                            this.adminHomePresenter = new AdminHomePresenter(
+                                    usuario.get(),
+                                    UsuarioRepositorySQLite.getInstance()
+                            );
+                        } else if ("USER".equals(this.usuarioGlobal.getTipoCadastro())) {
+                            this.userHomePresenter = new UserHomePresenter(
+                                    usuario.get(),
+                                    UsuarioRepositorySQLite.getInstance()
+                            );
+                        }
+
+                    }
+                    
+                
                 
 
 
@@ -68,6 +84,7 @@ public class LoginPresenter {
 
 
         });
+        
         loginView.setVisible(true);
     }
 

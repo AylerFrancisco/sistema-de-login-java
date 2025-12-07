@@ -29,6 +29,10 @@ public class LoginService {
         throw new RuntimeException("Usuário ou senha inválidos");
     }
     
+    if(usuario.get().getAutorizado() == 0){
+        throw new RuntimeException("Aguardando aprovação da solicitação do cadastro");
+    }
+    
 
     // Retorna o Optional com o usuário
     return usuario;

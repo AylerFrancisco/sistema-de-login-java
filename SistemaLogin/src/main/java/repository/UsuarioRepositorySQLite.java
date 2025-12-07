@@ -22,20 +22,19 @@ import observer.UsuarioSubject;
  *
  * @author Ayler
  */
-public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubject{
+public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubject {
 
-    
     private List<Usuario> usuarios = new ArrayList<>();
     private final List<UsuarioObserver> observers = new ArrayList<>();
     private static UsuarioRepositorySQLite instance;
     private LogAdapter logAdapter;
-    
-     // Construtor privado para garantir o Singleton
+
+    // Construtor privado para garantir o Singleton
     public UsuarioRepositorySQLite() {
         this.usuarios = listarTodos();
         logAdapter = new LogAdapterImpl.Builder().build();
     }
-    
+
     public static synchronized UsuarioRepositorySQLite getInstance() {
         if (instance == null) {
             instance = new UsuarioRepositorySQLite();
@@ -46,8 +45,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
     @Override
     public boolean criar(Usuario usuario) {
         try (Connection conexao = new SQLiteConexao().getConnexao()) { // Obtém uma conexão nova
-           
-           
+
             String sql = "INSERT INTO usuario (usuario, senha, tipoCadastro, autorizado, dataCadastro) VALUES (?, ?, ?, ?, ?)";
 
             try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
@@ -73,7 +71,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
     @Override
     public Usuario consultar(String usuario) {
-       Connection conexao = new SQLiteConexao().getConnexao();  //conexao do banco
+        Connection conexao = new SQLiteConexao().getConnexao();  //conexao do banco
         try {
             String sql = "SELECT * FROM usuario WHERE usuario = ? LIMIT 1";
 
@@ -103,36 +101,81 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
     }
 
     @Override
-    public void atualizar(Usuario usuario) {
-       Connection conexao = new SQLiteConexao().getConnexao();
+    public boolean remover(int id) {
+        String sql = "DELETE FROM usuario WHERE id = ?";
 
-        try {
-            String sql = "UPDATE usuario SET usuario = ?, senha = ? WHERE id = ?";
-            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+        try (Connection conexao = new SQLiteConexao().getConnexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
 
-            preparedStatement.setString(1, usuario.getUsuario());
-            preparedStatement.setString(2, usuario.getSenha());
-            preparedStatement.setInt(3, usuario.getId());
+            ps.setInt(1, id);
+            int linhas = ps.executeUpdate();
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            return linhas > 0;
 
-            if (rowsAffected > 0) {
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Usuario buscarPorId(int id) {
+        String sql = "SELECT id, usuario, senha, tipoCadastro, autorizado, dataCadastro FROM usuario WHERE id = ?";
+
+        try (Connection conexao = new SQLiteConexao().getConnexao(); PreparedStatement stmt = conexao.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId(rs.getInt("id"));
+                u.setUsuario(rs.getString("usuario"));
+                u.setSenha(rs.getString("senha"));
+                u.setTipoCadastro(rs.getString("tipoCadastro"));
+                u.setAutorizado(rs.getInt("autorizado"));
+                u.setDataCadastro(rs.getString("dataCadastro"));
+                return u;
+            }
+
+            return null;
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar usuário por ID: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public boolean atualizar(Usuario usuario) {
+        String sql = "UPDATE usuario SET usuario = ?, senha = ?, tipoCadastro = ?, autorizado = ?, dataCadastro = ? WHERE id = ?";
+
+        try (Connection conexao = new SQLiteConexao().getConnexao(); PreparedStatement stmt = conexao.prepareStatement(sql)) {
+
+            stmt.setString(1, usuario.getUsuario());
+            stmt.setString(2, usuario.getSenha());
+            stmt.setString(3, usuario.getTipoCadastro());
+            stmt.setInt(4, usuario.getAutorizado());
+            stmt.setString(5, usuario.getDataCadastro());
+            stmt.setInt(6, usuario.getId());
+
+            int linhas = stmt.executeUpdate();
+
+            if (linhas > 0) {
+                // recarrega lista interna
                 this.usuarios = listarTodos();
                 notifyUsuarioObservers();
-                //logAdapter.log("update", usuario.getUsuario(), usuario.getEmail());
-            } else {
-                throw new RuntimeException("Nenhum usuário foi atualizado.");
+                return true;   // <===== IMPORTANTE
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        } finally {
-//            ConexaoService.closeConexao(conexao);
+
+            return false; // nenhuma linha alterada (ID inexistente)
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao atualizar usuário: " + e.getMessage());
         }
     }
 
     @Override
     public boolean deletar(String usuario) {
-      Connection conexao = new SQLiteConexao().getConnexao();
+        Connection conexao = new SQLiteConexao().getConnexao();
 
         try {
             String sql = "DELETE FROM usuario WHERE usuario = ?";
@@ -160,8 +203,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
     public List<Usuario> listarTodos() {
         List<Usuario> usuarios = new ArrayList<>();
 
-       Connection conexao = new SQLiteConexao().getConnexao();
-
+        Connection conexao = new SQLiteConexao().getConnexao();
 
         try {
             String sql = "SELECT * FROM usuario";
@@ -210,11 +252,10 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 //        }
 //        return null;
 //    }
-
     @Override
     public Usuario buscarPorUsuario(String usuario1) {
         String sql = "SELECT usuario, senha, tipoCadastro, autorizado, dataCadastro FROM usuario WHERE usuario = ?";
-       Connection conexao = new SQLiteConexao().getConnexao();
+        Connection conexao = new SQLiteConexao().getConnexao();
 
         try (PreparedStatement pstmt = conexao.prepareStatement(sql);) {
             pstmt.setString(1, usuario1);
@@ -222,9 +263,9 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
             if (rs.next()) {
                 String usuario = rs.getString("usuario");
                 String senha = rs.getString("senha");
-                 String tipoCadastro = rs.getString("tipoCadastro");
-                    int autorizado = rs.getInt("autorizado");
-                    String dataCadastro = rs.getString("dataCadastro");
+                String tipoCadastro = rs.getString("tipoCadastro");
+                int autorizado = rs.getInt("autorizado");
+                String dataCadastro = rs.getString("dataCadastro");
 
                 return new Usuario(usuario, senha, tipoCadastro, autorizado, dataCadastro);
             }
@@ -232,6 +273,28 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
             throw new IllegalArgumentException("Não foi possível buscar o usuário", e);
         }
         return null;
+    }
+
+    public void autorizar(int id) {
+        try (Connection c = new SQLiteConexao().getConnexao()) {
+            String sql = "UPDATE usuario SET autorizado = 1 WHERE id = ?";
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao autorizar: " + e.getMessage());
+        }
+    }
+
+    public void excluir(int id) {
+        try (Connection c = new SQLiteConexao().getConnexao()) {
+            String sql = "DELETE FROM usuario WHERE id = ?";
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao excluir: " + e.getMessage());
+        }
     }
 
     @Override
@@ -254,9 +317,5 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
     public boolean hasUsuarioObserver(UsuarioObserver observer) {
         return observers.contains(observer);
     }
-    
-    
-    
-    
-    
+
 }
