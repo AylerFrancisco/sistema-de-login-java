@@ -28,7 +28,7 @@ public class SQLiteInicilizarBanco implements InicializarBanco {
     + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
     + "usuario VARCHAR(255) NOT NULL UNIQUE, "
     + "senha VARCHAR(255) NOT NULL, "
-    + "tipoUsuario VARCHAR(50) NOT NULL, "
+    + "tipoCadastro VARCHAR(50) NOT NULL, "
     + "autorizado INTEGER NOT NULL, "
     + "dataCadastro TEXT NOT NULL)"
 );

@@ -8,8 +8,12 @@ package presenter;
  *
  * @author Ayler
  */
+import java.util.Optional;
+import javax.swing.JOptionPane;
+import model.Usuario;
 import repository.IUsuarioRepository;
 import repository.UsuarioRepositorySQLite;
+import service.LoginService;
 import view.LoginViewSwing;
 import view.AdminHomeViewSwing;
 import view.UserHomeViewSwing;
@@ -17,56 +21,55 @@ import view.UserHomeViewSwing;
 
 public class LoginPresenter {
 
-    private final LoginViewSwing view;
-    private final IUsuarioRepository iUsuarioRepository;
+    private final LoginViewSwing loginView;
+    //private final IUsuarioRepository iUsuarioRepository;
+    private UserHomePresenter userHomePresenter;
+    private CadastroPresenter cadastroPresenter;
+    private final LoginService loginService;
 
-    public LoginPresenter(LoginViewSwing view) {
-        this.view = view;
-        this.iUsuarioRepository = new UsuarioRepositorySQLite();
+      public LoginPresenter(IUsuarioRepository usuarioRepository) {
+        this.loginView = new LoginViewSwing();
+        this.cadastroPresenter = new CadastroPresenter(usuarioRepository);
+        this.loginService = new LoginService(usuarioRepository);
 
-        configurarListeners();
+        configurar();
     }
 
-    private void configurarListeners() {
-        view.getBtnLogin().addActionListener(e -> fazerLogin());
-    }
+    public void configurar() {
+        loginView.getBtnLogin().addActionListener((java.awt.event.ActionEvent e) -> {
+            String user = loginView.getTxtUsernameField().getText();
+            String senha = new String(loginView.getPsswSenhaField().getPassword());
 
-    private void fazerLogin() {
-        String username = view.getTxtUsernameField().getText();
-        String senha = new String(view.getPsswSenhaField().getPassword());
+            try {
+                Optional<Usuario> usuario = loginService.autenticar(user, senha);
+                if (usuario.isPresent()) {
+                    loginView.dispose();
 
-        if (username.isEmpty() || senha.isEmpty()) {
-            view.getLblErro().setText("Preencha usuário e senha.");
-            return;
-        }
+                                       this.userHomePresenter = new UserHomePresenter(
+                            usuario.get(),
+                            UsuarioRepositorySQLite.getInstance()
+                    );
+                
 
-        try {
-            var usuario = iUsuarioRepository.consultar(username);
 
-            if (usuario == null) {
-                view.getLblErro().setText("Usuário não encontrado.");
-                return;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Login falhou! Verifique suas credenciais.", "Erro de Login", JOptionPane.ERROR_MESSAGE);
+
+                }
+            } catch (RuntimeException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro de Login", JOptionPane.ERROR_MESSAGE);
             }
 
-            if (!usuario.getSenha().equals(senha)) {
-                view.getLblErro().setText("Senha incorreta.");
-                return;
-            }
+        });
 
-            abrirTelaInicial(usuario.getTipoCadastro());  // admin ou user
-            view.dispose();
+        loginView.getBtnSolicitarAcesso().addActionListener((java.awt.event.ActionEvent e) -> {
+            loginView.dispose();
+            cadastroPresenter.exibir();
 
-        } catch (Exception ex) {
-            view.getLblErro().setText("Erro ao tentar logar.");
-            ex.printStackTrace();
-        }
+
+        });
+        loginView.setVisible(true);
     }
 
-    private void abrirTelaInicial(String tipo) {
-        if ("admin".equalsIgnoreCase(tipo)) {
-            new AdminHomeViewSwing().setVisible(true);
-        } else {
-            new UserHomeViewSwing().setVisible(true);
-        }
-    }
+ 
 }

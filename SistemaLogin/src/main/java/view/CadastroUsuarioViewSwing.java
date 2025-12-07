@@ -34,12 +34,12 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
     private void initComponents() {
 
         txtCadastroNome = new javax.swing.JTextField();
-        txtCadastroUsername = new javax.swing.JTextField();
         psswSenhaCadastro = new javax.swing.JPasswordField();
         btnCadastrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        psswSenhaConfirmar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,43 +49,48 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
             }
         });
 
-        psswSenhaCadastro.setText("jPasswordField1");
+        psswSenhaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psswSenhaCadastroActionPerformed(evt);
+            }
+        });
 
         btnCadastrar.setText("Cadastrar");
 
-        jLabel1.setText("Nome");
-
-        jLabel2.setText("User Name");
+        jLabel2.setText("Usuário:");
 
         jLabel3.setText("Senha");
+
+        jLabel4.setText("Confirma Senha:");
+
+        psswSenhaConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psswSenhaConfirmarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(psswSenhaCadastro)
-                        .addComponent(txtCadastroNome)
-                        .addComponent(txtCadastroUsername)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                    .addComponent(btnCadastrar)
+                    .addComponent(psswSenhaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCadastroNome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(psswSenhaConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCadastroUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCadastroNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -94,8 +99,12 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
                     .addComponent(psswSenhaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(psswSenhaConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addComponent(btnCadastrar)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,6 +113,14 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
     private void txtCadastroNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadastroNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCadastroNomeActionPerformed
+
+    private void psswSenhaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psswSenhaCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psswSenhaCadastroActionPerformed
+
+    private void psswSenhaConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psswSenhaConfirmarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psswSenhaConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,12 +149,12 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField psswSenhaCadastro;
+    private javax.swing.JTextField psswSenhaConfirmar;
     private javax.swing.JTextField txtCadastroNome;
-    private javax.swing.JTextField txtCadastroUsername;
     // End of variables declaration//GEN-END:variables
 
     public JButton getBtnCadastrar() {
@@ -148,13 +165,7 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
         this.btnCadastrar = btnCadastrar;
     }
 
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
+ 
 
     public JLabel getjLabel2() {
         return jLabel2;
@@ -188,11 +199,5 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
         this.txtCadastroNome = txtCadastroNome;
     }
 
-    public JTextField getTxtCadastroUsername() {
-        return txtCadastroUsername;
-    }
-
-    public void setTxtCadastroUsername(JTextField txtCadastroUsername) {
-        this.txtCadastroUsername = txtCadastroUsername;
-    }
+ 
 }

@@ -15,7 +15,7 @@ import java.sql.Statement;
  */
 public class SQLiteConexao implements Conexao {
     
-    private static final String URL = "jdbc:sqlite:atividadeAvaliativa.db";
+    private static final String URL = "jdbc:sqlite:atividadeAvaliativaProjetos.db";
 
     static {
         

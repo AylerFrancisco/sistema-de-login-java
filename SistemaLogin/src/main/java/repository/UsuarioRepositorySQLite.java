@@ -45,8 +45,10 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
     @Override
     public boolean criar(Usuario usuario) {
-        try (Connection conexao = (Connection) new SQLiteConexao(); ) { // Obtém uma conexão nova
-            String sql = "INSERT INTO usuario (usuario, senha, tipoUsuario, autorizado, dataCadastro) VALUES (?, ?, ?, ?, ?, ?)";
+        try (Connection conexao = new SQLiteConexao().getConnexao()) { // Obtém uma conexão nova
+           
+           
+            String sql = "INSERT INTO usuario (usuario, senha, tipoCadastro, autorizado, dataCadastro) VALUES (?, ?, ?, ?, ?)";
 
             try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
                 preparedStatement.setString(1, usuario.getUsuario());
@@ -71,7 +73,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
     @Override
     public Usuario consultar(String usuario) {
-       Connection conexao = (Connection) new SQLiteConexao();  //conexao do banco
+       Connection conexao = new SQLiteConexao().getConnexao();  //conexao do banco
         try {
             String sql = "SELECT * FROM usuario WHERE usuario = ? LIMIT 1";
 
@@ -102,7 +104,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
     @Override
     public void atualizar(Usuario usuario) {
-       Connection conexao = (Connection) new SQLiteConexao();
+       Connection conexao = new SQLiteConexao().getConnexao();
 
         try {
             String sql = "UPDATE usuario SET usuario = ?, senha = ? WHERE id = ?";
@@ -130,7 +132,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
     @Override
     public boolean deletar(String usuario) {
-       Connection conexao = (Connection) new SQLiteConexao();
+      Connection conexao = new SQLiteConexao().getConnexao();
 
         try {
             String sql = "DELETE FROM usuario WHERE usuario = ?";
@@ -158,7 +160,8 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
     public List<Usuario> listarTodos() {
         List<Usuario> usuarios = new ArrayList<>();
 
-        Connection conexao = (Connection) new SQLiteConexao();
+       Connection conexao = new SQLiteConexao().getConnexao();
+
 
         try {
             String sql = "SELECT * FROM usuario";
@@ -167,7 +170,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
             try (ResultSet resultSet = preparaLista.executeQuery()) {
                 while (resultSet.next()) {
                     int id = resultSet.getInt("id");
-                    String nome = resultSet.getString("nome");
+                    String nome = resultSet.getString("usuario");
                     String senha = resultSet.getString("senha");
                     String tipoCadastro = resultSet.getString("tipoCadastro");
                     int autorizado = resultSet.getInt("autorizado");
@@ -210,8 +213,8 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
     @Override
     public Usuario buscarPorUsuario(String usuario1) {
-        String sql = "SELECT nome, senha, tipoCadastro, autorizado, dataCadastro FROM usuario WHERE usuario = ?";
-       Connection conexao = (Connection) new SQLiteConexao();
+        String sql = "SELECT usuario, senha, tipoCadastro, autorizado, dataCadastro FROM usuario WHERE usuario = ?";
+       Connection conexao = new SQLiteConexao().getConnexao();
 
         try (PreparedStatement pstmt = conexao.prepareStatement(sql);) {
             pstmt.setString(1, usuario1);
