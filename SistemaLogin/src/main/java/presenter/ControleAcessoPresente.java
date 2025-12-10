@@ -1,6 +1,7 @@
 package presenter;
 
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Usuario;
@@ -9,17 +10,41 @@ import view.UsuariosPendentesViewSwing;
 
 public class ControleAcessoPresente {
 
-    private final UsuariosPendentesViewSwing view;
+    private UsuariosPendentesViewSwing view;
     private final UsuarioRepositorySQLite repository;
+    private JFrame parent;
 
-    public ControleAcessoPresente(UsuarioRepositorySQLite repository) {
+    public ControleAcessoPresente(UsuarioRepositorySQLite repository, JFrame parent) {
+        this.parent = parent;
         this.view = new UsuariosPendentesViewSwing();
         this.repository = repository;
 
+        
+        this.view = new UsuariosPendentesViewSwing();
+        
+ 
+        this.view.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+
+        
+        this.view.setAlwaysOnTop(false);
+        this.view.toFront();
+        
         carregarTabela();
         configurarAcoes();
 
-        view.setVisible(true);
+
+        this.view.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+
+        this.view.setLocationRelativeTo(parent);
+
+
+        this.view.pack();
+        this.view.setAlwaysOnTop(true);  
+        this.view.setVisible(true);
+
+
+        this.view.toFront();
+        this.view.requestFocus();
     }
 
     private void carregarTabela() {

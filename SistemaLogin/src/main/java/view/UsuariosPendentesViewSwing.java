@@ -5,6 +5,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -22,6 +23,7 @@ public class UsuariosPendentesViewSwing extends javax.swing.JFrame {
     public UsuariosPendentesViewSwing() {
         initComponents();
         configurarTabela();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     
     private void configurarTabela() {

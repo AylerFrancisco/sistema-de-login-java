@@ -4,6 +4,7 @@ import adapter.PasswordValidator;
 import adapter.PasswordValidatorAdapter;
 import exception.UsuarioJaCadastradoException;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Usuario;
@@ -21,22 +22,45 @@ public class UsuarioCadastroHomePresenter {
     private PasswordValidator passwordValidator;
     private Usuario usuarioSelecionado = null;
     private CadastroState atualEstado;
+    private JFrame parent;
 
     public UsuarioCadastroHomePresenter(UsuarioRepositorySQLite repository,
-            CadastroService cadastroService) {
-
+            CadastroService cadastroService, JFrame parent) {
+      
+        this.parent = parent;
+        
         this.repository = repository != null ? repository : UsuarioRepositorySQLite.getInstance();
         this.cadastroService = cadastroService;
         this.passwordValidator = new PasswordValidatorAdapter();
 
         this.view = new UsuarioCadastroHomeViewSwing();
+        
+ 
+        this.view.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+
+        
+        this.view.setAlwaysOnTop(false);
+        this.view.toFront();
 
         inicializarView();
         configurarAcoes();
         carregarUsuarios();
+        
+    
 
-        view.setLocationRelativeTo(null);
-        view.setVisible(true);
+this.view.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+
+// posicione RELATIVE to parent e NÃO sobrescreva depois
+this.view.setLocationRelativeTo(parent);
+
+// Force na frente APÓS pack e APÓS setVisible
+this.view.pack();
+this.view.setAlwaysOnTop(true);   // tenta garantir que fique acima
+this.view.setVisible(true);
+
+// garantir foco
+this.view.toFront();
+this.view.requestFocus();
     }
 
     private void inicializarView() {
