@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import java.awt.Color;
+
+
 
 /**
  *
@@ -21,8 +24,50 @@ public class LoginViewSwing extends javax.swing.JFrame {
      * Creates new form LoginViewSwing
      */
     public LoginViewSwing() {
-        initComponents();
-    }
+    initComponents();
+
+    // === CAMPOS DE TEXTO MODERNOS ===
+    txtUsernameField.setOpaque(false);
+    txtUsernameField.setBackground(new Color(255, 255, 255));
+    txtUsernameField.setBorder(
+        javax.swing.BorderFactory.createCompoundBorder(
+            new javax.swing.border.LineBorder(new Color(180, 180, 180), 1, true),
+            javax.swing.BorderFactory.createEmptyBorder(8, 12, 8, 12)
+        )
+    );
+
+    psswSenhaField.setOpaque(false);
+    psswSenhaField.setBackground(new Color(255, 255, 255));
+    psswSenhaField.setBorder(
+        javax.swing.BorderFactory.createCompoundBorder(
+            new javax.swing.border.LineBorder(new Color(180, 180, 180), 1, true),
+            javax.swing.BorderFactory.createEmptyBorder(8, 12, 8, 12)
+        )
+    );
+
+    // === BOTÃO LOGIN ===
+    btnLogin.setFocusPainted(false);
+    btnLogin.setContentAreaFilled(false); 
+    btnLogin.setOpaque(true);
+    btnLogin.setBackground(new Color(117, 117, 117)); // Azul moderno
+    btnLogin.setForeground(Color.WHITE);
+    btnLogin.setBorder(
+        new javax.swing.border.LineBorder(new Color(33,150,243), 1, true)
+    );
+
+    // === BOTÃO SOLICITAR ACESSO ===
+    btnSolicitarAcesso.setFocusPainted(false);
+    btnSolicitarAcesso.setContentAreaFilled(false);
+    btnSolicitarAcesso.setOpaque(true);
+    btnSolicitarAcesso.setBackground(new Color(117, 117, 117)); // Cinza moderno
+    btnSolicitarAcesso.setForeground(Color.WHITE);
+    btnSolicitarAcesso.setBorder(
+        new javax.swing.border.LineBorder(new Color(117,117,117), 1, true)
+    );
+}
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,14 +85,49 @@ public class LoginViewSwing extends javax.swing.JFrame {
         lblsenha = new javax.swing.JLabel();
         lblErro = new javax.swing.JLabel();
         btnSolicitarAcesso = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 153, 204));
+        setMinimumSize(new java.awt.Dimension(500, 300));
+        getContentPane().setLayout(null);
+
+        txtUsernameField.setToolTipText("");
+        txtUsernameField.setAlignmentX(0.8F);
+        txtUsernameField.setAlignmentY(0.8F);
+        txtUsernameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtUsernameField);
+        txtUsernameField.setBounds(129, 91, 85, 26);
+
+        psswSenhaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psswSenhaFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(psswSenhaField);
+        psswSenhaField.setBounds(129, 135, 85, 26);
 
         btnLogin.setText("Login");
+        getContentPane().add(btnLogin);
+        btnLogin.setBounds(85, 173, 137, 27);
 
-        lblUsuario.setText("Usuário");
+        lblUsuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsuario.setText("Usuário:");
+        getContentPane().add(lblUsuario);
+        lblUsuario.setBounds(75, 96, 50, 14);
 
-        lblsenha.setText("Senha");
+        lblsenha.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblsenha.setForeground(new java.awt.Color(0, 0, 0));
+        lblsenha.setText("Senha:");
+        getContentPane().add(lblsenha);
+        lblsenha.setBounds(80, 140, 50, 14);
+        getContentPane().add(lblErro);
+        lblErro.setBounds(228, 173, 0, 23);
 
         btnSolicitarAcesso.setText("Solicitar Acesso");
         btnSolicitarAcesso.addActionListener(new java.awt.event.ActionListener() {
@@ -55,49 +135,12 @@ public class LoginViewSwing extends javax.swing.JFrame {
                 btnSolicitarAcessoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSolicitarAcesso);
+        btnSolicitarAcesso.setBounds(85, 212, 137, 27);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLogin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblErro, javax.swing.GroupLayout.DEFAULT_SIZE, 3, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSolicitarAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblUsuario)
-                            .addComponent(lblsenha))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(psswSenhaField)
-                            .addComponent(txtUsernameField))))
-                .addGap(114, 114, 114))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsuario))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(psswSenhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblsenha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLogin)
-                        .addComponent(lblErro, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSolicitarAcesso))
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/login2.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-880, -90, 1620, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -105,6 +148,14 @@ public class LoginViewSwing extends javax.swing.JFrame {
     private void btnSolicitarAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarAcessoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSolicitarAcessoActionPerformed
+
+    private void txtUsernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameFieldActionPerformed
+
+    private void psswSenhaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psswSenhaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psswSenhaFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,7 +168,7 @@ public class LoginViewSwing extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -134,6 +185,7 @@ public class LoginViewSwing extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSolicitarAcesso;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblErro;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblsenha;
