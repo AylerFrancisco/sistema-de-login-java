@@ -12,17 +12,19 @@ import model.Usuario;
  * @author Ayler
  */
 public interface IUsuarioRepository {
-    
-     boolean criar(Usuario usuario);
+
+    boolean criar(Usuario usuario);
 
     Usuario consultar(String nome);
 
-    void atualizar(Usuario usuario);
+    boolean atualizar(Usuario usuario);
 
     boolean deletar(String email);
+
+    boolean remover(int id);
 
     List<Usuario> listarTodos();
 
     Usuario buscarPorUsuario(String usuario1);
-    
+
 }

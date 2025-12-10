@@ -7,26 +7,25 @@
         <Menu class="javax.swing.JMenu" name="mnuCadastarUsuarioAdmin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar Usu&#xe1;rio"/>
+            <Property name="delay" type="int" value="0"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuAutorizarUsuariosAdmin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Autorizar Usu&#xe1;rios"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuListarUsuariosAdmin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Listar Usu&#xe1;rios"/>
+            <Property name="delay" type="int" value="0"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuNotificacaoAdmin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enviar Notifica&#xe7;&#xe3;o"/>
+            <Property name="delay" type="int" value="0"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuConfigurarLogAdmin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configurar Log"/>
+            <Property name="delay" type="int" value="0"/>
           </Properties>
         </Menu>
       </SubComponents>

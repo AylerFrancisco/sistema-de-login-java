@@ -17,8 +17,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>24</maven.compiler.release>
-        <exec.mainClass>ufes.sistemalogin.SistemaLogin</exec.mainClass>
+        <maven.compiler.release>17</maven.compiler.release>
+        <exec.mainClass>presenter.MainPresenter</exec.mainClass>
     </properties>
     
     
