@@ -4,6 +4,7 @@
  */
 package view;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -21,6 +22,8 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
      */
     public AdminHomeViewSwing() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setAlwaysOnTop(false);
     }
 
     /**

@@ -56,7 +56,7 @@ public class AdminHomePresenter implements UsuarioObserver {
         view.getMnuAutorizarUsuariosAdmin().addMenuListener(new javax.swing.event.MenuListener() {
             @Override
             public void menuSelected(javax.swing.event.MenuEvent e) {
-                new ControleAcessoPresente(usuarioRepository);
+                new ControleAcessoPresente(usuarioRepository, view);
             }
 
             @Override
@@ -77,7 +77,7 @@ public class AdminHomePresenter implements UsuarioObserver {
 
                 new UsuarioCadastroHomePresenter(
                         usuarioRepository,
-                        cadastroService
+                        cadastroService, view
                 );
             }
 

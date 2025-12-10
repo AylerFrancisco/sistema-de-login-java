@@ -108,18 +108,18 @@
                   <Component id="psswConfirma" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbltipocadastro" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                      <Component id="radUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="radAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="radUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radAdmin" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbltipocadastro" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblautorizado" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="radNaoAut" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="radSimAut" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblautorizado" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="radSimAut" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="108" max="32767" attributes="0"/>
           </Group>
