@@ -23,7 +23,6 @@ public class LogAdapterImpl implements LogAdapter {
     private final String logPath = Dotenv.configure().load().get("LOG_FILE_PATH");
 
     LogAdapterImpl(Builder builder) {
-
         if (logType.equalsIgnoreCase("csv")) {
             this.formatter = new CSVLogFormatter();
         } else if (logType.equalsIgnoreCase("json")) {
