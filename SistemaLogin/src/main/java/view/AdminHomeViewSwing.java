@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -41,6 +42,7 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         mnuCadastarUsuarioAdmin = new javax.swing.JMenu();
         mnuAutorizarUsuariosAdmin = new javax.swing.JMenu();
         mnuNotificacaoAdmin = new javax.swing.JMenu();
+        itemCadastrarNotificacao = new javax.swing.JMenuItem();
         mnuConfigurarLogAdmin = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +61,15 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
 
         mnuNotificacaoAdmin.setText("Enviar Notificação");
         mnuNotificacaoAdmin.setDelay(0);
+
+        itemCadastrarNotificacao.setText("Registrar Notificação");
+        itemCadastrarNotificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCadastrarNotificacaoActionPerformed(evt);
+            }
+        });
+        mnuNotificacaoAdmin.add(itemCadastrarNotificacao);
+
         jMenuBar1.add(mnuNotificacaoAdmin);
 
         mnuConfigurarLogAdmin.setText("Configurar Log");
@@ -91,6 +102,10 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void itemCadastrarNotificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastrarNotificacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemCadastrarNotificacaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -117,6 +132,7 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemCadastrarNotificacao;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblBemvindo;
     private javax.swing.JLabel lblNomeUsuarioAdmin;
@@ -181,4 +197,13 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     public void setMnuNotificacaoAdmin(JMenu mnuNotificacaoAdmin) {
         this.mnuNotificacaoAdmin = mnuNotificacaoAdmin;
     }
+    
+    public JMenuItem getItemEnviarNotificacao() {
+    return itemCadastrarNotificacao;
+}
+    
+public JMenuItem getItemCadastrarNotificacao() {
+    return itemCadastrarNotificacao;
+}
+
 }

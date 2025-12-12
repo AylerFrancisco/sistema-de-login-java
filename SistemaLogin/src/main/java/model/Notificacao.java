@@ -11,20 +11,19 @@ import java.time.LocalDateTime;
  * @author Ayler
  */
 public class Notificacao {
-    private int id;
-    private int idRemetente;
-    private int idDestinatario;
+    private Integer id;
+    private Integer idRemetente;
+    private Integer idDestinatario;
     private String mensagem;
-    private LocalDateTime dataEnvio;
-    private boolean lida;
+    private String dataEnvio;
+    private Integer lida;
 
-    public Notificacao(int id, int idRemetente, int idDestinatario, String mensagem, LocalDateTime dataEnvio, boolean lida) {
-        this.id = id;
+    public Notificacao(Integer idRemetente, Integer idDestinatario, String mensagem) {
         this.idRemetente = idRemetente;
         this.idDestinatario = idDestinatario;
         this.mensagem = mensagem;
-        this.dataEnvio = dataEnvio;
-        this.lida = lida;
+        this.dataEnvio = LocalDateTime.now().toString();
+        this.lida = 0;
     }
     
     public Notificacao(){
@@ -36,36 +35,47 @@ public class Notificacao {
     public void setId(int id){
         this.id = id;
     }
-    public int getIdRemetente(){
-        return idRemetente;
-    }
-    public void setIdRemetente(int idRemetente){
-        this.idRemetente = idRemetente;
-    }
-    public int getIdDestinatario(){
-        return idDestinatario;
-    }
-    public void setIdDestinatario(int idDestinatario){
-        this.idDestinatario = idDestinatario;
-    }
     public String getMensagem(){
         return mensagem;
     }
     public void setMensagem(String mensagem){
         this.mensagem = mensagem;
     }
-    public LocalDateTime getDataEnvio(){
+
+    public Integer getIdRemetente() {
+        return idRemetente;
+    }
+
+    public void setIdRemetente(Integer idRemetente) {
+        this.idRemetente = idRemetente;
+    }
+
+    public Integer getIdDestinatario() {
+        return idDestinatario;
+    }
+
+    public void setIdDestinatario(Integer idDestinatario) {
+        this.idDestinatario = idDestinatario;
+    }
+
+    public String getDataEnvio() {
         return dataEnvio;
     }
-    public void setDataEnvio(LocalDateTime dataEnvio){
+
+    public void setDataEnvio(String dataEnvio) {
         this.dataEnvio = dataEnvio;
     }
-    public boolean isLida(){
+
+    public Integer getLida() {
         return lida;
     }
-    public void setLida(boolean lida ){
+
+    public void setLida(Integer lida) {
         this.lida = lida;
     }
+    
+    
+   
     @Override
     public String toString(){
         return mensagem;

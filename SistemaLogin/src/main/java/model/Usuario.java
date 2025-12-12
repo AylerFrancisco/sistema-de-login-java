@@ -93,4 +93,11 @@ public class Usuario {
     public void setAutorizado(Integer autorizado) {
         this.autorizado = autorizado;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "usuario=" + usuario + '}';
+    }
+    
+    
 }

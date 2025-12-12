@@ -1,28 +1,99 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package view;
 
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JToggleButton;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+import model.Usuario;
 
 /**
  *
- * @author Ayler
+ * @author lukian.borges
  */
-public class EnviarNotificacaoViewSwing extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EnviarNotificacaoViewSwing.class.getName());
+public class EnviarNotificacaoViewSwing extends javax.swing.JPanel {
 
     /**
      * Creates new form EnviarNotificacaoViewSwing
      */
     public EnviarNotificacaoViewSwing() {
         initComponents();
+        configurarTabela();
+    }
+    
+private void configurarTabela() {
+    DefaultTableModel model = new DefaultTableModel(
+        new Object[][]{},
+        new String[]{"Selecionar", "Nome", "Situação", "ID"}
+    ) {
+        Class[] columnTypes = new Class[]{
+            Boolean.class, String.class, String.class, Integer.class
+        };
+
+        @Override
+        public Class<?> getColumnClass(int columnIndex) {
+            return columnTypes[columnIndex];
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return column == 0;
+        }
+    };
+
+    tblUsuarios.setModel(model);
+
+    // Ocultar coluna ID sem removê-la
+    tblUsuarios.getColumnModel().getColumn(3).setMinWidth(0);
+    tblUsuarios.getColumnModel().getColumn(3).setMaxWidth(0);
+    tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(0);
+}
+
+
+
+
+    public void setUsuarios(List<Usuario> lista) {
+        DefaultTableModel model = (DefaultTableModel) tblUsuarios.getModel();
+        model.setRowCount(0);
+
+        for (Usuario u : lista) {
+            model.addRow(new Object[]{
+                false, // checkbox
+                u.getUsuario(),
+                (u.getAutorizado() != null && u.getAutorizado() == 1) ? "Autorizado" : "Não autorizado",
+                u.getId() // guardado mas oculto
+            });
+        }
+
+        // Oculta a coluna do ID
+        tblUsuarios.getColumnModel().removeColumn(tblUsuarios.getColumnModel().getColumn(3));
+    }
+
+    public List<Integer> getUsuariosSelecionados() {
+        List<Integer> ids = new ArrayList<>();
+        DefaultTableModel model = (DefaultTableModel) tblUsuarios.getModel();
+
+        int rowCount = model.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            Boolean selecionado = (Boolean) model.getValueAt(i, 0);
+            if (selecionado != null && selecionado) {
+          
+                Integer id = (Integer) model.getValueAt(i, 3);
+                ids.add(id);
+            }
+        }
+        return ids;
+    }
+
+    public String getMensagem() {
+        return txtMensagem.getText();
+    }
+
+    public JButton getBtnEnviar() {
+        return btnEnviar;
     }
 
     /**
@@ -34,161 +105,94 @@ public class EnviarNotificacaoViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cmbUsuarioNotificacao = new javax.swing.JComboBox<>();
-        lblUsuarioNotificacao = new javax.swing.JLabel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtaMensagemNotificacao = new javax.swing.JTextArea();
-        btnEnviarNotificacao = new javax.swing.JToggleButton();
-        lblMensagemNotificacao = new javax.swing.JLabel();
+        tblUsuarios = new javax.swing.JTable();
+        txtMensagem = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnEnviar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jInternalFrame1.setVisible(true);
 
-        cmbUsuarioNotificacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario 1", "Usuario 2" }));
-        cmbUsuarioNotificacao.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblUsuarios);
+
+        jLabel1.setText("Mensagem:");
+
+        btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbUsuarioNotificacaoActionPerformed(evt);
+                btnEnviarActionPerformed(evt);
             }
         });
 
-        lblUsuarioNotificacao.setText("Usuário:");
-
-        txtaMensagemNotificacao.setColumns(20);
-        txtaMensagemNotificacao.setRows(5);
-        jScrollPane1.setViewportView(txtaMensagemNotificacao);
-
-        btnEnviarNotificacao.setText("Enviar Notificação");
-        btnEnviarNotificacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarNotificacaoActionPerformed(evt);
-            }
-        });
-
-        lblMensagemNotificacao.setText("Mensagem: ");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEnviarNotificacao)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMensagemNotificacao)
-                            .addComponent(lblUsuarioNotificacao))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbUsuarioNotificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(74, Short.MAX_VALUE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbUsuarioNotificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsuarioNotificacao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMensagemNotificacao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEnviarNotificacao)
-                .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(txtMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btnEnviar)
+                .addGap(48, 48, 48))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEnviarNotificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarNotificacaoActionPerformed
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEnviarNotificacaoActionPerformed
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
-    private void cmbUsuarioNotificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioNotificacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbUsuarioNotificacaoActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new EnviarNotificacaoViewSwing().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnEnviarNotificacao;
-    private javax.swing.JComboBox<String> cmbUsuarioNotificacao;
+    private javax.swing.JButton btnEnviar;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMensagemNotificacao;
-    private javax.swing.JLabel lblUsuarioNotificacao;
-    private javax.swing.JTextArea txtaMensagemNotificacao;
+    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JTextField txtMensagem;
     // End of variables declaration//GEN-END:variables
-
-    public JToggleButton getBtnEnviarNotificacao() {
-        return btnEnviarNotificacao;
-    }
-
-    public void setBtnEnviarNotificacao(JToggleButton btnEnviarNotificacao) {
-        this.btnEnviarNotificacao = btnEnviarNotificacao;
-    }
-
-    public JComboBox<String> getCmbUsuarioNotificacao() {
-        return cmbUsuarioNotificacao;
-    }
-
-    public void setCmbUsuarioNotificacao(JComboBox<String> cmbUsuarioNotificacao) {
-        this.cmbUsuarioNotificacao = cmbUsuarioNotificacao;
-    }
-
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
-
-    public JLabel getLblMensagemNotificacao() {
-        return lblMensagemNotificacao;
-    }
-
-    public void setLblMensagemNotificacao(JLabel lblMensagemNotificacao) {
-        this.lblMensagemNotificacao = lblMensagemNotificacao;
-    }
-
-    public JLabel getLblUsuarioNotificacao() {
-        return lblUsuarioNotificacao;
-    }
-
-    public void setLblUsuarioNotificacao(JLabel lblUsuarioNotificacao) {
-        this.lblUsuarioNotificacao = lblUsuarioNotificacao;
-    }
-
-    public JTextArea getTxtaMensagemNotificacao() {
-        return txtaMensagemNotificacao;
-    }
-
-    public void setTxtaMensagemNotificacao(JTextArea txtaMensagemNotificacao) {
-        this.txtaMensagemNotificacao = txtaMensagemNotificacao;
-    }
 }

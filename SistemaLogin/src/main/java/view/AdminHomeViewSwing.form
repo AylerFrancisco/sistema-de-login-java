@@ -21,6 +21,16 @@
             <Property name="text" type="java.lang.String" value="Enviar Notifica&#xe7;&#xe3;o"/>
             <Property name="delay" type="int" value="0"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="itemCadastrarNotificacao">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Notifica&#xe7;&#xe3;o"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemCadastrarNotificacaoActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuConfigurarLogAdmin">
           <Properties>

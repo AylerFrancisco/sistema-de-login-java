@@ -59,7 +59,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
                 if (rowsAffected > 0) {
                     this.usuarios = listarTodos();
                     notifyUsuarioObservers();
-                    //logAdapter.log("create", usuario.getUsuario(), usuario.getEmail());
+                    logAdapter.log("create", usuario.getUsuario(), usuario.getDataCadastro());
                     return true;
                 }
                 return false;

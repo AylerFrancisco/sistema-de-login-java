@@ -89,6 +89,12 @@ public class AdminHomePresenter implements UsuarioObserver {
             public void menuCanceled(javax.swing.event.MenuEvent e) {
             }
         });
+        
+ view.getItemCadastrarNotificacao().addActionListener(e -> {
+    new EnviarNotificacaoPresenter(view, 1);
+});
+
+
 
     }
 
