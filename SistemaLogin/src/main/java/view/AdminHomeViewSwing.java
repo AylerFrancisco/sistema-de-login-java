@@ -40,10 +40,13 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         lblNomeUsuarioAdmin = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuCadastarUsuarioAdmin = new javax.swing.JMenu();
-        mnuAutorizarUsuariosAdmin = new javax.swing.JMenu();
+        mnuCadastrar = new javax.swing.JMenuItem();
+        mnuAutorizar = new javax.swing.JMenuItem();
         mnuNotificacaoAdmin = new javax.swing.JMenu();
         itemCadastrarNotificacao = new javax.swing.JMenuItem();
         mnuConfigurarLogAdmin = new javax.swing.JMenu();
+        btnSair = new javax.swing.JMenu();
+        mnuLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,13 +54,16 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
 
         lblNomeUsuarioAdmin.setText("Nome do cara");
 
-        mnuCadastarUsuarioAdmin.setText("Cadastrar Usuário");
+        mnuCadastarUsuarioAdmin.setText("Usuario");
         mnuCadastarUsuarioAdmin.setDelay(0);
-        jMenuBar1.add(mnuCadastarUsuarioAdmin);
 
-        mnuAutorizarUsuariosAdmin.setText("Autorizar Usuários");
-        mnuAutorizarUsuariosAdmin.setDelay(0);
-        jMenuBar1.add(mnuAutorizarUsuariosAdmin);
+        mnuCadastrar.setText("Cadastrar");
+        mnuCadastarUsuarioAdmin.add(mnuCadastrar);
+
+        mnuAutorizar.setText("Autorizar");
+        mnuCadastarUsuarioAdmin.add(mnuAutorizar);
+
+        jMenuBar1.add(mnuCadastarUsuarioAdmin);
 
         mnuNotificacaoAdmin.setText("Enviar Notificação");
         mnuNotificacaoAdmin.setDelay(0);
@@ -75,6 +81,18 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         mnuConfigurarLogAdmin.setText("Configurar Log");
         mnuConfigurarLogAdmin.setDelay(0);
         jMenuBar1.add(mnuConfigurarLogAdmin);
+
+        btnSair.setText("Sair");
+
+        mnuLogout.setText("Logout");
+        mnuLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuLogoutActionPerformed(evt);
+            }
+        });
+        btnSair.add(mnuLogout);
+
+        jMenuBar1.add(btnSair);
 
         setJMenuBar(jMenuBar1);
 
@@ -106,6 +124,10 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itemCadastrarNotificacaoActionPerformed
 
+    private void mnuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -132,13 +154,16 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnSair;
     private javax.swing.JMenuItem itemCadastrarNotificacao;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblBemvindo;
     private javax.swing.JLabel lblNomeUsuarioAdmin;
-    private javax.swing.JMenu mnuAutorizarUsuariosAdmin;
+    private javax.swing.JMenuItem mnuAutorizar;
     private javax.swing.JMenu mnuCadastarUsuarioAdmin;
+    private javax.swing.JMenuItem mnuCadastrar;
     private javax.swing.JMenu mnuConfigurarLogAdmin;
+    private javax.swing.JMenuItem mnuLogout;
     private javax.swing.JMenu mnuNotificacaoAdmin;
     // End of variables declaration//GEN-END:variables
 
@@ -164,14 +189,6 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
 
     public void setLblNomeUsuarioAdmin(JLabel lblNomeUsuarioAdmin) {
         this.lblNomeUsuarioAdmin = lblNomeUsuarioAdmin;
-    }
-
-    public JMenu getMnuAutorizarUsuariosAdmin() {
-        return mnuAutorizarUsuariosAdmin;
-    }
-
-    public void setMnuAutorizarUsuariosAdmin(JMenu mnuAutorizarUsuariosAdmin) {
-        this.mnuAutorizarUsuariosAdmin = mnuAutorizarUsuariosAdmin;
     }
 
     public JMenu getMnuCadastarUsuarioAdmin() {
@@ -205,5 +222,39 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
 public JMenuItem getItemCadastrarNotificacao() {
     return itemCadastrarNotificacao;
 }
+
+    public JMenu getBtnSair() {
+        return btnSair;
+    }
+
+    public void setBtnSair(JMenu btnSair) {
+        this.btnSair = btnSair;
+    }
+
+    public JMenuItem getMnuLogout() {
+        return mnuLogout;
+    }
+
+    public void setMnuLogout(JMenuItem mnuLogout) {
+        this.mnuLogout = mnuLogout;
+    }
+
+    public JMenuItem getMnuAutorizar() {
+        return mnuAutorizar;
+    }
+
+    public void setMnuAutorizar(JMenuItem mnuAutorizar) {
+        this.mnuAutorizar = mnuAutorizar;
+    }
+
+    public JMenuItem getMnuCadastrar() {
+        return mnuCadastrar;
+    }
+
+    public void setMnuCadastrar(JMenuItem mnuCadastrar) {
+        this.mnuCadastrar = mnuCadastrar;
+    }
+
+
 
 }

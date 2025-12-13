@@ -17,4 +17,10 @@ public interface IEnviarNotificacaoRepository {
     boolean remover(int idNotificacao) throws Exception;
 
     boolean atualizar(Notificacao notificacao) throws Exception;
+    
+    boolean salvar(Notificacao n) throws Exception;
+    
+    boolean marcarComoLida(int idNotificacao) throws Exception;
+    
+    
 }

@@ -8,11 +8,38 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Notifica&#xe7;&#xf5;es"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuEntrada">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Caixa de Entrada"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuEntradaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuLida">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lidas"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuAlterarSenhaUser">
           <Properties>
             <Property name="text" type="java.lang.String" value="Alterar Senha"/>
           </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="btnSair">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sair"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuLogout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

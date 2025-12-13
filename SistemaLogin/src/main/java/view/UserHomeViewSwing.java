@@ -6,6 +6,7 @@ package view;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -33,15 +34,38 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuVisualizarNotificacoesUser = new javax.swing.JMenu();
+        mnuEntrada = new javax.swing.JMenuItem();
+        mnuLida = new javax.swing.JMenuItem();
         mnuAlterarSenhaUser = new javax.swing.JMenu();
+        btnSair = new javax.swing.JMenu();
+        mnuLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         mnuVisualizarNotificacoesUser.setText("Notificações");
+
+        mnuEntrada.setText("Caixa de Entrada");
+        mnuEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuEntradaActionPerformed(evt);
+            }
+        });
+        mnuVisualizarNotificacoesUser.add(mnuEntrada);
+
+        mnuLida.setText("Lidas");
+        mnuVisualizarNotificacoesUser.add(mnuLida);
+
         jMenuBar1.add(mnuVisualizarNotificacoesUser);
 
         mnuAlterarSenhaUser.setText("Alterar Senha");
         jMenuBar1.add(mnuAlterarSenhaUser);
+
+        btnSair.setText("Sair");
+
+        mnuLogout.setText("Logout");
+        btnSair.add(mnuLogout);
+
+        jMenuBar1.add(btnSair);
 
         setJMenuBar(jMenuBar1);
 
@@ -58,6 +82,10 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnuEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuEntradaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -85,8 +113,12 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnSair;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu mnuAlterarSenhaUser;
+    private javax.swing.JMenuItem mnuEntrada;
+    private javax.swing.JMenuItem mnuLida;
+    private javax.swing.JMenuItem mnuLogout;
     private javax.swing.JMenu mnuVisualizarNotificacoesUser;
     // End of variables declaration//GEN-END:variables
 
@@ -113,4 +145,47 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
     public void setMnuVisualizarNotificacoesUser(JMenu mnuVisualizarNotificacoesUser) {
         this.mnuVisualizarNotificacoesUser = mnuVisualizarNotificacoesUser;
     }
+    
+    public JMenuItem getMenuCaixaEntrada() {
+    return mnuEntrada;
+}
+
+public JMenuItem getMenuLidas() {
+    return mnuLida;
+}
+
+    public JMenu getBtnSair() {
+        return btnSair;
+    }
+
+    public void setBtnSair(JMenu btnSair) {
+        this.btnSair = btnSair;
+    }
+
+    public JMenuItem getMnuEntrada() {
+        return mnuEntrada;
+    }
+
+    public void setMnuEntrada(JMenuItem mnuEntrada) {
+        this.mnuEntrada = mnuEntrada;
+    }
+
+    public JMenuItem getMnuLida() {
+        return mnuLida;
+    }
+
+    public void setMnuLida(JMenuItem mnuLida) {
+        this.mnuLida = mnuLida;
+    }
+
+    public JMenuItem getMnuLogout() {
+        return mnuLogout;
+    }
+
+    public void setMnuLogout(JMenuItem mnuLogout) {
+        this.mnuLogout = mnuLogout;
+    }
+
+
+
 }

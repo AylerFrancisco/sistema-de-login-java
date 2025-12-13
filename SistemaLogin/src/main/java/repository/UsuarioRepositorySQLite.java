@@ -253,27 +253,35 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 //        return null;
 //    }
     @Override
-    public Usuario buscarPorUsuario(String usuario1) {
-        String sql = "SELECT usuario, senha, tipoCadastro, autorizado, dataCadastro FROM usuario WHERE usuario = ?";
-        Connection conexao = new SQLiteConexao().getConnexao();
+public Usuario buscarPorUsuario(String usuario1) {
 
-        try (PreparedStatement pstmt = conexao.prepareStatement(sql);) {
-            pstmt.setString(1, usuario1);
-            ResultSet rs = pstmt.executeQuery();
+    String sql = "SELECT id, usuario, senha, tipoCadastro, autorizado, dataCadastro " +
+                 "FROM usuario WHERE usuario = ?";
+
+    try (Connection conexao = new SQLiteConexao().getConnexao();
+         PreparedStatement pstmt = conexao.prepareStatement(sql)) {
+
+        pstmt.setString(1, usuario1);
+
+        try (ResultSet rs = pstmt.executeQuery()) {
             if (rs.next()) {
+                int id = rs.getInt("id");
                 String usuario = rs.getString("usuario");
                 String senha = rs.getString("senha");
                 String tipoCadastro = rs.getString("tipoCadastro");
                 int autorizado = rs.getInt("autorizado");
                 String dataCadastro = rs.getString("dataCadastro");
 
-                return new Usuario(usuario, senha, tipoCadastro, autorizado, dataCadastro);
+                return new Usuario(id, usuario, senha, tipoCadastro, autorizado, dataCadastro);
             }
-        } catch (SQLException e) {
-            throw new IllegalArgumentException("Não foi possível buscar o usuário", e);
         }
-        return null;
+
+    } catch (SQLException e) {
+        throw new IllegalArgumentException("Não foi possível buscar o usuário", e);
     }
+
+    return null;
+}
 
     public void autorizar(int id) {
         try (Connection c = new SQLiteConexao().getConnexao()) {

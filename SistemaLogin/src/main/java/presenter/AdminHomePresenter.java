@@ -53,49 +53,47 @@ public class AdminHomePresenter implements UsuarioObserver {
 
     private void configurarAcoes() {
 
-        view.getMnuAutorizarUsuariosAdmin().addMenuListener(new javax.swing.event.MenuListener() {
-            @Override
-            public void menuSelected(javax.swing.event.MenuEvent e) {
-                new ControleAcessoPresente(usuarioRepository, view);
-            }
+    // =========================
+    // USUÁRIO -> CADASTRAR
+    // =========================
+    view.getMnuCadastrar().addActionListener(e -> {
 
-            @Override
-            public void menuDeselected(javax.swing.event.MenuEvent e) {
-            }
+        CadastroService cadastroService =
+                new CadastroService(usuarioRepository);
 
-            @Override
-            public void menuCanceled(javax.swing.event.MenuEvent e) {
-            }
-        });
+        new UsuarioCadastroHomePresenter(
+                usuarioRepository,
+                cadastroService,
+                view
+        );
+    });
 
-        view.getMnuCadastarUsuarioAdmin().addMenuListener(new javax.swing.event.MenuListener() {
-            @Override
-            public void menuSelected(javax.swing.event.MenuEvent e) {
+    // =========================
+    // USUÁRIO -> AUTORIZAR
+    // =========================
+    view.getMnuAutorizar().addActionListener(e -> {
 
-                CadastroService cadastroService
-                        = new CadastroService(usuarioRepository); // cria service
-
-                new UsuarioCadastroHomePresenter(
-                        usuarioRepository,
-                        cadastroService, view
-                );
-            }
-
-            @Override
-            public void menuDeselected(javax.swing.event.MenuEvent e) {
-            }
-
-            @Override
-            public void menuCanceled(javax.swing.event.MenuEvent e) {
-            }
-        });
+        new ControleAcessoPresente(
+                usuarioRepository,
+                view
+        );
+    });
+        
+         // SAIR -> LOGOUT
+        view.getMnuLogout()
+                .addActionListener(e -> logout());
         
  view.getItemCadastrarNotificacao().addActionListener(e -> {
-    new EnviarNotificacaoPresenter(view, 1);
+    new EnviarNotificacaoPresenter(view, usuarioLogado.getId());
 });
 
 
 
+    }
+    
+       private void logout() {
+        view.dispose(); // fecha a Home
+        new LoginPresenter(UsuarioRepositorySQLite.getInstance());
     }
 
     private void updateUsuarios(List<Usuario> usuarios) {

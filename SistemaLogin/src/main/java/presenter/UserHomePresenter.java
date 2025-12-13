@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package presenter;
 
 import java.util.List;
@@ -11,51 +7,72 @@ import observer.UsuarioObserver;
 import repository.UsuarioRepositorySQLite;
 import view.UserHomeViewSwing;
 
-/**
- *
- * @author lukian.borges
- */
 public class UserHomePresenter implements UsuarioObserver {
-    
-     private final UserHomeViewSwing view;
 
-   // private final List<WindowCommand> windowCommands = new ArrayList<>();
+    private final UserHomeViewSwing view;
     private Usuario usuarioLogado;
-
-    private UsuarioRepositorySQLite usuarioRepository;
+    private final UsuarioRepositorySQLite usuarioRepository;
 
     public UserHomePresenter(Usuario usuarioLogado,
-                              UsuarioRepositorySQLite usuarioRepositorySQLite) {
+                             UsuarioRepositorySQLite usuarioRepositorySQLite) {
 
-        // Inicializando as variáveis
         this.view = new UserHomeViewSwing();
-        this.usuarioRepository = usuarioRepositorySQLite != null ? usuarioRepositorySQLite : UsuarioRepositorySQLite.getInstance();;
-        this.usuarioLogado = usuarioLogado;;
+        this.usuarioRepository = (usuarioRepositorySQLite != null)
+                ? usuarioRepositorySQLite
+                : UsuarioRepositorySQLite.getInstance();
 
-        // Registrando observadores
-        //this.repository.addObserver(this);
-        //this.usuarioRepository.addUsuarioObserver(this);
+        this.usuarioLogado = usuarioLogado;
 
-        // Inicializando a view
-//        this.view.setUsuarioLogado(usuarioLogado);
-//        GlobalWindowManager.initialize(view);
-//
-//        // Inicializando os comandos e outras configurações
-//        this.comandos = inicializarComandos();
-//        inicializarEExecutarWindowCommands();
+        configurarAcoesMenu();
 
-        // Tornando a view visível
         view.setVisible(true);
     }
-    
-    
-    
-      private void updateUsuarios(List<Usuario> usuarios) {
+
+    /**
+     * Configura todas as ações do menu principal.
+     */
+    private void configurarAcoesMenu() {
+
+        // NOTIFICAÇÕES -> CAIXA DE ENTRADA
+        view.getMenuCaixaEntrada()
+                .addActionListener(e -> abrirCaixaEntrada());
+
+        // NOTIFICAÇÕES -> LIDAS
+        view.getMenuLidas()
+                .addActionListener(e -> abrirNotificacoesLidas());
+
+        // SAIR -> LOGOUT
+        view.getMnuLogout()
+                .addActionListener(e -> logout());
+    }
+
+    private void abrirCaixaEntrada() {
+        new NotificacaoEmAbertoPresenter(view, usuarioLogado.getId());
+    }
+
+    private void abrirNotificacoesLidas() {
+        new NotificacoesLidasPresenter(view, usuarioLogado.getId());
+    }
+
+    /**
+     * Logout do usuário:
+     * - fecha a home
+     * - volta para tela de login
+     */
+    private void logout() {
+        view.dispose(); // fecha a Home
+        new LoginPresenter(UsuarioRepositorySQLite.getInstance());
+    }
+
+    // -----------------------------------------------------------
+    //      OBSERVER
+    // -----------------------------------------------------------
+
+    private void updateUsuarios(List<Usuario> usuarios) {
         SwingUtilities.invokeLater(() -> atualizarInformacoesUsuarioLogado(usuarios));
     }
 
     private void atualizarInformacoesUsuarioLogado(List<Usuario> usuarios) {
-
         Usuario usuarioAtualizado = usuarios.stream()
                 .filter(u -> u.getId() == usuarioLogado.getId())
                 .findFirst()
@@ -63,13 +80,11 @@ public class UserHomePresenter implements UsuarioObserver {
 
         if (usuarioAtualizado != null) {
             usuarioLogado = usuarioAtualizado;
-            //view.setUsuarioLogado(usuarioAtualizado);
         }
     }
 
-   @Override
+    @Override
     public void onUsuariosUpdated(List<Usuario> usuarios) {
         updateUsuarios(usuarios);
-    } 
-    
+    }
 }

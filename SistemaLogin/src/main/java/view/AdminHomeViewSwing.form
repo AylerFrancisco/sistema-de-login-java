@@ -6,15 +6,21 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="mnuCadastarUsuarioAdmin">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar Usu&#xe1;rio"/>
+            <Property name="text" type="java.lang.String" value="Usuario"/>
             <Property name="delay" type="int" value="0"/>
           </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuAutorizarUsuariosAdmin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Autorizar Usu&#xe1;rios"/>
-            <Property name="delay" type="int" value="0"/>
-          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuCadastrar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cadastrar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuAutorizar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Autorizar"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuNotificacaoAdmin">
           <Properties>
@@ -37,6 +43,21 @@
             <Property name="text" type="java.lang.String" value="Configurar Log"/>
             <Property name="delay" type="int" value="0"/>
           </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="btnSair">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sair"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuLogout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuLogoutActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

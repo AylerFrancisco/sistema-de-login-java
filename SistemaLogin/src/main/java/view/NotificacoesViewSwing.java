@@ -6,6 +6,8 @@ package view;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,7 +22,35 @@ public class NotificacoesViewSwing extends javax.swing.JFrame {
      */
     public NotificacoesViewSwing() {
         initComponents();
+        configurarTabela();
+        
     }
+    
+    private void configurarTabela() {
+    DefaultTableModel model = new DefaultTableModel(
+        new Object[][]{},
+        new String[]{"Selecionar", "Remetente", "Mensagem", "Data", "ID"}
+    ) {
+        Class[] types = new Class[]{
+            Boolean.class, String.class, String.class, String.class, Integer.class
+        };
+
+        @Override
+        public Class getColumnClass(int col) { return types[col]; }
+
+        @Override
+        public boolean isCellEditable(int row, int col) { return col == 0; }
+    };
+
+    tb1.setModel(model);
+
+    // ocultar coluna ID
+    tb1.getColumnModel().getColumn(4).setMinWidth(0);
+    tb1.getColumnModel().getColumn(4).setMaxWidth(0);
+    tb1.getColumnModel().getColumn(4).setPreferredWidth(0);
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,36 +61,68 @@ public class NotificacoesViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPanelNotificacaoViewMostraNotificacao = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         lblPanelNotificacaoViewUltimasNotificoes = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tb1 = new javax.swing.JTable();
+        btnMarcaLida = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblPanelNotificacaoViewUltimasNotificoes.setText("Ultimas Notificações:");
+        lblPanelNotificacaoViewUltimasNotificoes.setText("Notificações em aberto:");
+
+        tb1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tb1);
+
+        btnMarcaLida.setText("Marcar como lida");
+        btnMarcaLida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarcaLidaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPanelNotificacaoViewMostraNotificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPanelNotificacaoViewUltimasNotificoes))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(lblPanelNotificacaoViewUltimasNotificoes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMarcaLida, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(279, 279, 279))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(lblPanelNotificacaoViewUltimasNotificoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPanelNotificacaoViewMostraNotificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMarcaLida)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMarcaLidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcaLidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMarcaLidaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,17 +150,13 @@ public class NotificacoesViewSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPanelNotificacaoViewMostraNotificacao;
+    private javax.swing.JButton btnMarcaLida;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblPanelNotificacaoViewUltimasNotificoes;
+    private javax.swing.JTable tb1;
     // End of variables declaration//GEN-END:variables
 
-    public JScrollPane getjScrollPanelNotificacaoViewMostraNotificacao() {
-        return jScrollPanelNotificacaoViewMostraNotificacao;
-    }
-
-    public void setjScrollPanelNotificacaoViewMostraNotificacao(JScrollPane jScrollPanelNotificacaoViewMostraNotificacao) {
-        this.jScrollPanelNotificacaoViewMostraNotificacao = jScrollPanelNotificacaoViewMostraNotificacao;
-    }
 
     public JLabel getLblPanelNotificacaoViewUltimasNotificoes() {
         return lblPanelNotificacaoViewUltimasNotificoes;
@@ -107,4 +165,17 @@ public class NotificacoesViewSwing extends javax.swing.JFrame {
     public void setLblPanelNotificacaoViewUltimasNotificoes(JLabel lblPanelNotificacaoViewUltimasNotificoes) {
         this.lblPanelNotificacaoViewUltimasNotificoes = lblPanelNotificacaoViewUltimasNotificoes;
     }
+
+    public JTable getjTable1() {
+        return tb1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.tb1 = jTable1;
+    }
+    
+    public javax.swing.JButton getBtnMarcaLida() {
+    return btnMarcaLida;
+}
+
 }
