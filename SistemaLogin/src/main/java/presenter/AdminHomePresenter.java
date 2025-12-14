@@ -48,14 +48,43 @@ public class AdminHomePresenter implements UsuarioObserver {
 //        inicializarEExecutarWindowCommands();
         // Tornando a view visível
         view.setVisible(true);
+        configurarUsuarioLogado(); 
         configurarAcoes();
     }
+    
+    private void configurarUsuarioLogado() {
+    if (usuarioLogado == null) return;
+
+    String tipoFormatado;
+
+    switch (usuarioLogado.getTipoCadastro()) {
+        case "ADMIN_MASTER":
+            tipoFormatado = "ADMINISTRADOR MASTER";
+            break;
+        case "ADMIN":
+            tipoFormatado = "ADMINISTRADOR";
+            break;
+        case "USER":
+            tipoFormatado = "USUÁRIO";
+            break;
+        default:
+            tipoFormatado = usuarioLogado.getTipoCadastro();
+    }
+
+    String texto = "Usuário logado: "
+            + usuarioLogado.getUsuario()
+            + " | Perfil: "
+            + tipoFormatado;
+
+    view.getTxtUserLog().setText(texto);
+    view.getTxtUserLog().setEditable(false);
+}
+
 
     private void configurarAcoes() {
 
-    // =========================
     // USUÁRIO -> CADASTRAR
-    // =========================
+
     view.getMnuCadastrar().addActionListener(e -> {
 
         CadastroService cadastroService =
@@ -67,10 +96,11 @@ public class AdminHomePresenter implements UsuarioObserver {
                 view
         );
     });
+    
 
-    // =========================
+ 
     // USUÁRIO -> AUTORIZAR
-    // =========================
+
     view.getMnuAutorizar().addActionListener(e -> {
 
         new ControleAcessoPresente(
@@ -78,7 +108,26 @@ public class AdminHomePresenter implements UsuarioObserver {
                 view
         );
     });
+    
+    // ESTATISTICAS
+        view.getMnuNotficacaoEstatistica().addActionListener(e -> {
+
+        new EstatisticaNotificacaoPresenter(
+         
+                view
+        );
+    });
         
+        //config log
+        
+        
+         view.getMnuLog().addActionListener(e -> {
+
+        new ConfiguracaoPresenter(
+         
+                view
+        );
+    }); 
          // SAIR -> LOGOUT
         view.getMnuLogout()
                 .addActionListener(e -> logout());

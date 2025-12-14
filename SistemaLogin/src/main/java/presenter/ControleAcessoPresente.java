@@ -16,35 +16,23 @@ public class ControleAcessoPresente {
 
     public ControleAcessoPresente(UsuarioRepositorySQLite repository, JFrame parent) {
         this.parent = parent;
-        this.view = new UsuariosPendentesViewSwing();
         this.repository = repository;
 
         
         this.view = new UsuariosPendentesViewSwing();
-        
- 
-        this.view.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
 
-        
-        this.view.setAlwaysOnTop(false);
-        this.view.toFront();
-        
+        this.view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+     
         carregarTabela();
         configurarAcoes();
 
-
-        this.view.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
-
+   
         this.view.setLocationRelativeTo(parent);
 
-
+    
         this.view.pack();
-        this.view.setAlwaysOnTop(true);  
         this.view.setVisible(true);
-
-
-        this.view.toFront();
-        this.view.requestFocus();
     }
 
     private void carregarTabela() {
@@ -58,7 +46,7 @@ public class ControleAcessoPresente {
             model.addRow(new Object[]{u.getUsuario(), status, u.getId()});
         }
 
-        // Esconder coluna ID (3ª)
+    
         view.getjTable1().getColumnModel().getColumn(2).setMinWidth(0);
         view.getjTable1().getColumnModel().getColumn(2).setMaxWidth(0);
         view.getjTable1().getColumnModel().getColumn(2).setWidth(0);
@@ -68,7 +56,7 @@ public class ControleAcessoPresente {
     private int getUsuarioSelecionadoId() {
         int row = view.getjTable1().getSelectedRow();
         if (row == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione um usuário!");
+            JOptionPane.showMessageDialog(view, "Selecione um usuário!");
             return -1;
         }
 
@@ -85,7 +73,12 @@ public class ControleAcessoPresente {
 
             repository.autorizar(id);  // precisa criar esse método abaixo
 
-            JOptionPane.showMessageDialog(null, "Usuário autorizado!");
+            JOptionPane.showMessageDialog(
+                    view,
+                    "Usuário autorizado!",
+                    "Sucesso",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
             carregarTabela();
         });
 
@@ -97,7 +90,7 @@ public class ControleAcessoPresente {
 
             repository.excluir(id);
 
-            JOptionPane.showMessageDialog(null, "Usuário excluído!");
+            JOptionPane.showMessageDialog(view, "Usuário excluído!");
             carregarTabela();
         });
     }

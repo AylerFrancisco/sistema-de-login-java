@@ -50,15 +50,14 @@ public class UsuarioCadastroHomePresenter {
 
 this.view.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
 
-// posicione RELATIVE to parent e NÃO sobrescreva depois
+
 this.view.setLocationRelativeTo(parent);
 
-// Force na frente APÓS pack e APÓS setVisible
-this.view.pack();
-this.view.setAlwaysOnTop(true);   // tenta garantir que fique acima
+
+this.view.setAlwaysOnTop(true);   
 this.view.setVisible(true);
 
-// garantir foco
+
 this.view.toFront();
 this.view.requestFocus();
     }
@@ -237,21 +236,21 @@ this.view.requestFocus();
 
                 System.out.println("DEBUG -> editando id=" + usuarioSelecionado.getId());
 
-                // ======== VALIDAR SENHA ========
+              
                 String senhaFinal;
 
                 if (senha.isBlank() && confirmarSenha.isBlank()) {
-                    // manter senha atual
+                 
                     senhaFinal = usuarioSelecionado.getSenha();
                 } else {
-                    // precisa validar igual
+                 
                     if (!senha.equals(confirmarSenha)) {
                         JOptionPane.showMessageDialog(view,
                                 "A senha e a confirmação não coincidem.");
                         return;
                     }
 
-                    // validar regras da senha
+               
                     try {
                         passwordValidator.validarSenha(senha);
                     } catch (IllegalArgumentException ex) {

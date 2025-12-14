@@ -39,7 +39,7 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        psswSenhaConfirmar = new javax.swing.JTextField();
+        psswSenhaConfirmar = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,11 +80,11 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCadastrar)
-                    .addComponent(psswSenhaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCadastroNome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(psswSenhaConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(psswSenhaCadastro)
+                    .addComponent(txtCadastroNome)
+                    .addComponent(psswSenhaConfirmar))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,12 +99,12 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
                     .addComponent(psswSenhaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(psswSenhaConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(32, 32, 32)
                 .addComponent(btnCadastrar)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,7 +153,7 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField psswSenhaCadastro;
-    private javax.swing.JTextField psswSenhaConfirmar;
+    private javax.swing.JPasswordField psswSenhaConfirmar;
     private javax.swing.JTextField txtCadastroNome;
     // End of variables declaration//GEN-END:variables
 
@@ -198,6 +198,16 @@ public class CadastroUsuarioViewSwing extends javax.swing.JFrame {
     public void setTxtCadastroNome(JTextField txtCadastroNome) {
         this.txtCadastroNome = txtCadastroNome;
     }
+
+    public JPasswordField getPsswSenhaConfirmar() {
+        return psswSenhaConfirmar;
+    }
+
+    public void setPsswSenhaConfirmar(JPasswordField psswSenhaConfirmar) {
+        this.psswSenhaConfirmar = psswSenhaConfirmar;
+    }
+    
+    
 
  
 }

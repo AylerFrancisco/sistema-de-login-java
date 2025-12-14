@@ -18,7 +18,6 @@ import view.LoginViewSwing;
 import view.AdminHomeViewSwing;
 import view.UserHomeViewSwing;
 
-
 public class LoginPresenter {
 
     private final LoginViewSwing loginView;
@@ -30,7 +29,7 @@ public class LoginPresenter {
     private final LoginService loginService;
     private Usuario usuarioGlobal;
 
-      public LoginPresenter(IUsuarioRepository usuarioRepository) {
+    public LoginPresenter(IUsuarioRepository usuarioRepository) {
         this.loginView = new LoginViewSwing();
         this.cadastroPresenter = new CadastroPresenter(usuarioRepository);
         this.loginService = new LoginService(usuarioRepository);
@@ -50,7 +49,7 @@ public class LoginPresenter {
                     loginView.dispose();
 
                     if (this.usuarioGlobal != null) {
-                        if ("ADMIN_MASTER".equals(this.usuarioGlobal.getTipoCadastro())) {
+                        if ("ADMIN_MASTER".equals(this.usuarioGlobal.getTipoCadastro()) || "ADMIN".equals(this.usuarioGlobal.getTipoCadastro())) {
                             this.adminHomePresenter = new AdminHomePresenter(
                                     usuario.get(),
                                     UsuarioRepositorySQLite.getInstance()
@@ -63,10 +62,6 @@ public class LoginPresenter {
                         }
 
                     }
-                    
-                
-                
-
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Login falhou! Verifique suas credenciais.", "Erro de Login", JOptionPane.ERROR_MESSAGE);
@@ -82,11 +77,9 @@ public class LoginPresenter {
             loginView.dispose();
             cadastroPresenter.exibir();
 
-
         });
-        
+
         loginView.setVisible(true);
     }
 
- 
 }

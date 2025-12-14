@@ -101,7 +101,7 @@ public class LoginViewSwing extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtUsernameField);
-        txtUsernameField.setBounds(129, 91, 85, 26);
+        txtUsernameField.setBounds(129, 83, 160, 30);
 
         psswSenhaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,23 +109,23 @@ public class LoginViewSwing extends javax.swing.JFrame {
             }
         });
         getContentPane().add(psswSenhaField);
-        psswSenhaField.setBounds(129, 135, 85, 26);
+        psswSenhaField.setBounds(129, 127, 160, 30);
 
         btnLogin.setText("Login");
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(85, 173, 137, 27);
+        btnLogin.setBounds(60, 180, 137, 23);
 
         lblUsuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("Usuário:");
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(75, 96, 50, 14);
+        lblUsuario.setBounds(75, 80, 50, 30);
 
         lblsenha.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblsenha.setForeground(new java.awt.Color(0, 0, 0));
         lblsenha.setText("Senha:");
         getContentPane().add(lblsenha);
-        lblsenha.setBounds(80, 140, 50, 14);
+        lblsenha.setBounds(80, 124, 50, 30);
         getContentPane().add(lblErro);
         lblErro.setBounds(228, 173, 0, 23);
 
@@ -136,7 +136,7 @@ public class LoginViewSwing extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSolicitarAcesso);
-        btnSolicitarAcesso.setBounds(85, 212, 137, 27);
+        btnSolicitarAcesso.setBounds(220, 180, 137, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/login2.jpg"))); // NOI18N
         getContentPane().add(jLabel1);

@@ -14,7 +14,7 @@ public class UserHomePresenter implements UsuarioObserver {
     private final UsuarioRepositorySQLite usuarioRepository;
 
     public UserHomePresenter(Usuario usuarioLogado,
-                             UsuarioRepositorySQLite usuarioRepositorySQLite) {
+            UsuarioRepositorySQLite usuarioRepositorySQLite) {
 
         this.view = new UserHomeViewSwing();
         this.usuarioRepository = (usuarioRepositorySQLite != null)
@@ -26,11 +26,40 @@ public class UserHomePresenter implements UsuarioObserver {
         configurarAcoesMenu();
 
         view.setVisible(true);
+        configurarUsuarioLogado();
     }
 
-    /**
-     * Configura todas as ações do menu principal.
-     */
+    private void configurarUsuarioLogado() {
+        if (usuarioLogado == null) {
+            return;
+        }
+
+        String tipoFormatado;
+
+        switch (usuarioLogado.getTipoCadastro()) {
+            case "ADMIN_MASTER":
+                tipoFormatado = "ADMINISTRADOR MASTER";
+                break;
+            case "ADMIN":
+                tipoFormatado = "ADMINISTRADOR";
+                break;
+            case "USER":
+                tipoFormatado = "USUÁRIO";
+                break;
+            default:
+                tipoFormatado = usuarioLogado.getTipoCadastro();
+        }
+
+        String texto = "Usuário logado: "
+                + usuarioLogado.getUsuario()
+                + " | Perfil: "
+                + tipoFormatado;
+
+        view.getTxtUserLog().setText(texto);
+        view.getTxtUserLog().setEditable(false);
+    }
+
+ 
     private void configurarAcoesMenu() {
 
         // NOTIFICAÇÕES -> CAIXA DE ENTRADA
@@ -40,6 +69,10 @@ public class UserHomePresenter implements UsuarioObserver {
         // NOTIFICAÇÕES -> LIDAS
         view.getMenuLidas()
                 .addActionListener(e -> abrirNotificacoesLidas());
+
+        // ALTERAR SENHA
+        view.getMnuAlterar()
+                .addActionListener(e -> abrirAlterarSenha());
 
         // SAIR -> LOGOUT
         view.getMnuLogout()
@@ -53,20 +86,19 @@ public class UserHomePresenter implements UsuarioObserver {
     private void abrirNotificacoesLidas() {
         new NotificacoesLidasPresenter(view, usuarioLogado.getId());
     }
+    
+    private void abrirAlterarSenha(){
+        new AlterarSenhaPresenter(view, usuarioLogado);
+    }
 
-    /**
-     * Logout do usuário:
-     * - fecha a home
-     * - volta para tela de login
-     */
+
     private void logout() {
-        view.dispose(); // fecha a Home
+        view.dispose();
         new LoginPresenter(UsuarioRepositorySQLite.getInstance());
     }
 
-    // -----------------------------------------------------------
+
     //      OBSERVER
-    // -----------------------------------------------------------
 
     private void updateUsuarios(List<Usuario> usuarios) {
         SwingUtilities.invokeLater(() -> atualizarInformacoesUsuarioLogado(usuarios));

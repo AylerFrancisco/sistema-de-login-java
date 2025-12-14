@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 
 /**
  *
@@ -25,7 +26,46 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setAlwaysOnTop(false);
+         configurarRodape();
     }
+    
+   private void configurarRodape() {
+  
+    getContentPane().removeAll();
+
+
+    getContentPane().setLayout(new java.awt.BorderLayout());
+
+
+    javax.swing.JPanel rodape = new javax.swing.JPanel(
+            new java.awt.BorderLayout()
+    );
+
+ 
+    java.awt.Font fonteAtual = txtUserLog.getFont();
+    txtUserLog.setFont(
+            new java.awt.Font(
+                    fonteAtual.getName(),
+                    java.awt.Font.BOLD,   // NEGRITO
+                    fonteAtual.getSize() + 2 // um pouco maior
+            )
+    );
+
+    txtUserLog.setEditable(false);
+    txtUserLog.setBorder(
+            javax.swing.BorderFactory.createEmptyBorder(6, 12, 6, 12)
+    );
+
+    rodape.add(txtUserLog, java.awt.BorderLayout.CENTER);
+
+   
+    getContentPane().add(rodape, java.awt.BorderLayout.SOUTH);
+
+    revalidate();
+    repaint();
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,23 +76,27 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblBemvindo = new javax.swing.JLabel();
-        lblNomeUsuarioAdmin = new javax.swing.JLabel();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        txtUserLog = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuCadastarUsuarioAdmin = new javax.swing.JMenu();
         mnuCadastrar = new javax.swing.JMenuItem();
         mnuAutorizar = new javax.swing.JMenuItem();
         mnuNotificacaoAdmin = new javax.swing.JMenu();
         itemCadastrarNotificacao = new javax.swing.JMenuItem();
+        mnuEstatistica = new javax.swing.JMenu();
+        mnuNotficacaoEstatistica = new javax.swing.JMenuItem();
         mnuConfigurarLogAdmin = new javax.swing.JMenu();
+        mnuLog = new javax.swing.JMenuItem();
         btnSair = new javax.swing.JMenu();
         mnuLogout = new javax.swing.JMenuItem();
 
+        jMenu1.setText("jMenu1");
+
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblBemvindo.setText("Bem vindo !");
-
-        lblNomeUsuarioAdmin.setText("Nome do cara");
 
         mnuCadastarUsuarioAdmin.setText("Usuario");
         mnuCadastarUsuarioAdmin.setDelay(0);
@@ -78,8 +122,29 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuNotificacaoAdmin);
 
+        mnuEstatistica.setText("Estatísticas ");
+
+        mnuNotficacaoEstatistica.setText("Notificações");
+        mnuNotficacaoEstatistica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuNotficacaoEstatisticaActionPerformed(evt);
+            }
+        });
+        mnuEstatistica.add(mnuNotficacaoEstatistica);
+
+        jMenuBar1.add(mnuEstatistica);
+
         mnuConfigurarLogAdmin.setText("Configurar Log");
         mnuConfigurarLogAdmin.setDelay(0);
+
+        mnuLog.setText("Log");
+        mnuLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuLogActionPerformed(evt);
+            }
+        });
+        mnuConfigurarLogAdmin.add(mnuLog);
+
         jMenuBar1.add(mnuConfigurarLogAdmin);
 
         btnSair.setText("Sair");
@@ -100,21 +165,17 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(175, Short.MAX_VALUE)
-                .addComponent(lblBemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblNomeUsuarioAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtUserLog, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(257, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomeUsuarioAdmin))
-                .addContainerGap(135, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(339, Short.MAX_VALUE)
+                .addComponent(txtUserLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -127,6 +188,14 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     private void mnuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuLogoutActionPerformed
+
+    private void mnuNotficacaoEstatisticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNotficacaoEstatisticaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuNotficacaoEstatisticaActionPerformed
+
+    private void mnuLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuLogActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,15 +225,19 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu btnSair;
     private javax.swing.JMenuItem itemCadastrarNotificacao;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel lblBemvindo;
-    private javax.swing.JLabel lblNomeUsuarioAdmin;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem mnuAutorizar;
     private javax.swing.JMenu mnuCadastarUsuarioAdmin;
     private javax.swing.JMenuItem mnuCadastrar;
     private javax.swing.JMenu mnuConfigurarLogAdmin;
+    private javax.swing.JMenu mnuEstatistica;
+    private javax.swing.JMenuItem mnuLog;
     private javax.swing.JMenuItem mnuLogout;
+    private javax.swing.JMenuItem mnuNotficacaoEstatistica;
     private javax.swing.JMenu mnuNotificacaoAdmin;
+    private javax.swing.JTextField txtUserLog;
     // End of variables declaration//GEN-END:variables
 
     public JMenuBar getjMenuBar1() {
@@ -175,21 +248,6 @@ public class AdminHomeViewSwing extends javax.swing.JFrame {
         this.jMenuBar1 = jMenuBar1;
     }
 
-    public JLabel getLblBemvindo() {
-        return lblBemvindo;
-    }
-
-    public void setLblBemvindo(JLabel lblBemvindo) {
-        this.lblBemvindo = lblBemvindo;
-    }
-
-    public JLabel getLblNomeUsuarioAdmin() {
-        return lblNomeUsuarioAdmin;
-    }
-
-    public void setLblNomeUsuarioAdmin(JLabel lblNomeUsuarioAdmin) {
-        this.lblNomeUsuarioAdmin = lblNomeUsuarioAdmin;
-    }
 
     public JMenu getMnuCadastarUsuarioAdmin() {
         return mnuCadastarUsuarioAdmin;
@@ -256,5 +314,38 @@ public JMenuItem getItemCadastrarNotificacao() {
     }
 
 
+    public JMenu getMnuEstatistica() {
+        return mnuEstatistica;
+    }
+
+    public void setMnuEstatistica(JMenu mnuEstatistica) {
+        this.mnuEstatistica = mnuEstatistica;
+    }
+
+    public JMenuItem getMnuNotficacaoEstatistica() {
+        return mnuNotficacaoEstatistica;
+    }
+
+    public void setMnuNotficacaoEstatistica(JMenuItem mnuNotficacaoEstatistica) {
+        this.mnuNotficacaoEstatistica = mnuNotficacaoEstatistica;
+    }
+
+    public JTextField getTxtUserLog() {
+        return txtUserLog;
+    }
+
+    public void setTxtUserLog(JTextField txtUserLog) {
+        this.txtUserLog = txtUserLog;
+    }
+
+    public JMenuItem getMnuLog() {
+        return mnuLog;
+    }
+
+    public void setMnuLog(JMenuItem mnuLog) {
+        this.mnuLog = mnuLog;
+    }
+
+    
 
 }

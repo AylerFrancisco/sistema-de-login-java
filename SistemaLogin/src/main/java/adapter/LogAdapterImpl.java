@@ -4,46 +4,49 @@
  */
 package adapter;
 
+import adapter.LogAdapter;
 import br.ufes.log.CSVLogFormatter;
 import br.ufes.log.FileLogWriter;
 import br.ufes.log.JSONLogFormatter;
 import br.ufes.log.LogFormatter;
 import br.ufes.log.LogWriter;
 import io.github.cdimascio.dotenv.Dotenv;
+import service.ConfiguracaoService;
 
-/**
- *
- * @author lukian.borges
- */
 public class LogAdapterImpl implements LogAdapter {
-    
-     private final LogFormatter formatter;
-    private final LogWriter writer;
-    private final String logType = Dotenv.configure().load().get("LOG_FILE_TYPE");
-    private final String logPath = Dotenv.configure().load().get("LOG_FILE_PATH");
 
-    LogAdapterImpl(Builder builder) {
-        if (logType.equalsIgnoreCase("csv")) {
-            this.formatter = new CSVLogFormatter();
-        } else if (logType.equalsIgnoreCase("json")) {
-            this.formatter = new JSONLogFormatter();
-        } else {
-            throw new IllegalArgumentException("Tipo de log inválido.");
-        }
-        this.writer = new FileLogWriter(logPath + "." + logType);
+    private final String logPath =
+            Dotenv.configure().load().get("LOG_FILE_PATH");
+
+    private final ConfiguracaoService configuracaoService =
+            new ConfiguracaoService();
+    
+      public LogAdapterImpl() {
+      
     }
 
     @Override
     public void log(String operation, String name, String user) {
-        String formattedMessage = formatter.format(operation, name, user);
-        writer.write(formattedMessage);
-    }
 
-    public static class Builder {
-        public LogAdapterImpl build() {
-            return new LogAdapterImpl(this);
+        String tipoLog = configuracaoService.obterTipoLog(); // 🔥 DO BANCO
+
+        LogFormatter formatter;
+        String extensao;
+
+        if ("CSV".equalsIgnoreCase(tipoLog)) {
+            formatter = new CSVLogFormatter();
+            extensao = "csv";
+        } else if ("JSONL".equalsIgnoreCase(tipoLog)) {
+            formatter = new JSONLogFormatter();
+            extensao = "jsonl";
+        } else {
+            throw new IllegalArgumentException("Tipo de log inválido: " + tipoLog);
         }
+
+        LogWriter writer =
+                new FileLogWriter(logPath + "." + extensao);
+
+        String formatted = formatter.format(operation, name, user);
+        writer.write(formatted);
     }
-    
-    
 }

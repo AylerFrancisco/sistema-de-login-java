@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package view;
 
@@ -10,11 +10,9 @@ import javax.swing.JPasswordField;
 
 /**
  *
- * @author Ayler
+ * @author lukian.borges
  */
-public class AlterarSenhaViewSwing extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AlterarSenhaViewSwing.class.getName());
+public class AlterarSenhaViewSwing extends javax.swing.JPanel {
 
     /**
      * Creates new form AlterarSenhaViewSwing
@@ -34,119 +32,114 @@ public class AlterarSenhaViewSwing extends javax.swing.JFrame {
 
         psswAlterarSenhaAtual = new javax.swing.JPasswordField();
         psswAlterarSenhaNova = new javax.swing.JPasswordField();
-        btnAlterarSenhaAlterarSenha = new javax.swing.JButton();
-        lblAlterarSenhaSenhaAtual = new javax.swing.JLabel();
-        lblAlterarSenhaNovaSenha = new javax.swing.JLabel();
+        btnAlterarSenhaAlterarSenha1 = new javax.swing.JButton();
+        lblAlterarSenhaSenhaAtual1 = new javax.swing.JLabel();
+        lblAlterarSenhaNovaSenha2 = new javax.swing.JLabel();
+        lblAlterarSenhaNovaSenha3 = new javax.swing.JLabel();
+        psswAlterarSenhaConfirma = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        psswAlterarSenhaAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psswAlterarSenhaAtualActionPerformed(evt);
+            }
+        });
 
-        psswAlterarSenhaAtual.setText("jPasswordField1");
+        btnAlterarSenhaAlterarSenha1.setText("Alterar Senha");
 
-        psswAlterarSenhaNova.setText("jPasswordField2");
+        lblAlterarSenhaSenhaAtual1.setText("Senha Atual");
 
-        btnAlterarSenhaAlterarSenha.setText("Alterar Senha");
+        lblAlterarSenhaNovaSenha2.setText("Nova Senha");
 
-        lblAlterarSenhaSenhaAtual.setText("Senha Atual");
+        lblAlterarSenhaNovaSenha3.setText("Confirmar Senha");
 
-        lblAlterarSenhaNovaSenha.setText("Nova Senha");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(psswAlterarSenhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(134, 134, 134)
-                            .addComponent(btnAlterarSenhaAlterarSenha)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(76, 76, 76)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAlterarSenhaNovaSenha)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAlterarSenhaSenhaAtual)
-                                .addGap(27, 27, 27)
-                                .addComponent(psswAlterarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(162, Short.MAX_VALUE))
+                            .addComponent(lblAlterarSenhaNovaSenha3)
+                            .addComponent(lblAlterarSenhaSenhaAtual1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblAlterarSenhaNovaSenha2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(psswAlterarSenhaNova, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(psswAlterarSenhaAtual)
+                            .addComponent(psswAlterarSenhaConfirma)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(btnAlterarSenhaAlterarSenha1)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(psswAlterarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAlterarSenhaSenhaAtual))
+                    .addComponent(lblAlterarSenhaSenhaAtual1)
+                    .addComponent(psswAlterarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(psswAlterarSenhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAlterarSenhaNovaSenha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAlterarSenhaAlterarSenha)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAlterarSenhaNovaSenha2)
+                    .addComponent(psswAlterarSenhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAlterarSenhaNovaSenha3)
+                    .addComponent(psswAlterarSenhaConfirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(btnAlterarSenhaAlterarSenha1)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void psswAlterarSenhaAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psswAlterarSenhaAtualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psswAlterarSenhaAtualActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AlterarSenhaViewSwing().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterarSenhaAlterarSenha;
-    private javax.swing.JLabel lblAlterarSenhaNovaSenha;
-    private javax.swing.JLabel lblAlterarSenhaSenhaAtual;
+    private javax.swing.JButton btnAlterarSenhaAlterarSenha1;
+    private javax.swing.JLabel lblAlterarSenhaNovaSenha2;
+    private javax.swing.JLabel lblAlterarSenhaNovaSenha3;
+    private javax.swing.JLabel lblAlterarSenhaSenhaAtual1;
     private javax.swing.JPasswordField psswAlterarSenhaAtual;
+    private javax.swing.JPasswordField psswAlterarSenhaConfirma;
     private javax.swing.JPasswordField psswAlterarSenhaNova;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getBtnAlterarSenhaAlterarSenha() {
-        return btnAlterarSenhaAlterarSenha;
+    public JButton getBtnAlterarSenhaAlterarSenha1() {
+        return btnAlterarSenhaAlterarSenha1;
     }
 
-    public void setBtnAlterarSenhaAlterarSenha(JButton btnAlterarSenhaAlterarSenha) {
-        this.btnAlterarSenhaAlterarSenha = btnAlterarSenhaAlterarSenha;
+    public void setBtnAlterarSenhaAlterarSenha1(JButton btnAlterarSenhaAlterarSenha1) {
+        this.btnAlterarSenhaAlterarSenha1 = btnAlterarSenhaAlterarSenha1;
     }
 
-    public JLabel getLblAlterarSenhaNovaSenha() {
-        return lblAlterarSenhaNovaSenha;
+    public JLabel getLblAlterarSenhaNovaSenha2() {
+        return lblAlterarSenhaNovaSenha2;
     }
 
-    public void setLblAlterarSenhaNovaSenha(JLabel lblAlterarSenhaNovaSenha) {
-        this.lblAlterarSenhaNovaSenha = lblAlterarSenhaNovaSenha;
+    public void setLblAlterarSenhaNovaSenha2(JLabel lblAlterarSenhaNovaSenha2) {
+        this.lblAlterarSenhaNovaSenha2 = lblAlterarSenhaNovaSenha2;
     }
 
-    public JLabel getLblAlterarSenhaSenhaAtual() {
-        return lblAlterarSenhaSenhaAtual;
+    public JLabel getLblAlterarSenhaNovaSenha3() {
+        return lblAlterarSenhaNovaSenha3;
     }
 
-    public void setLblAlterarSenhaSenhaAtual(JLabel lblAlterarSenhaSenhaAtual) {
-        this.lblAlterarSenhaSenhaAtual = lblAlterarSenhaSenhaAtual;
+    public void setLblAlterarSenhaNovaSenha3(JLabel lblAlterarSenhaNovaSenha3) {
+        this.lblAlterarSenhaNovaSenha3 = lblAlterarSenhaNovaSenha3;
+    }
+
+    public JLabel getLblAlterarSenhaSenhaAtual1() {
+        return lblAlterarSenhaSenhaAtual1;
+    }
+
+    public void setLblAlterarSenhaSenhaAtual1(JLabel lblAlterarSenhaSenhaAtual1) {
+        this.lblAlterarSenhaSenhaAtual1 = lblAlterarSenhaSenhaAtual1;
     }
 
     public JPasswordField getPsswAlterarSenhaAtual() {
@@ -157,6 +150,14 @@ public class AlterarSenhaViewSwing extends javax.swing.JFrame {
         this.psswAlterarSenhaAtual = psswAlterarSenhaAtual;
     }
 
+    public JPasswordField getPsswAlterarSenhaConfirma() {
+        return psswAlterarSenhaConfirma;
+    }
+
+    public void setPsswAlterarSenhaConfirma(JPasswordField psswAlterarSenhaConfirma) {
+        this.psswAlterarSenhaConfirma = psswAlterarSenhaConfirma;
+    }
+
     public JPasswordField getPsswAlterarSenhaNova() {
         return psswAlterarSenhaNova;
     }
@@ -164,4 +165,9 @@ public class AlterarSenhaViewSwing extends javax.swing.JFrame {
     public void setPsswAlterarSenhaNova(JPasswordField psswAlterarSenhaNova) {
         this.psswAlterarSenhaNova = psswAlterarSenhaNova;
     }
+
+
+
+
+
 }

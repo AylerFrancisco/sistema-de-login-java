@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package view;
 
@@ -10,11 +10,9 @@ import javax.swing.JRadioButton;
 
 /**
  *
- * @author Ayler
+ * @author lukian.borges
  */
-public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ConfiguracaoLogViewSwing.class.getName());
+public class ConfiguracaoLogViewSwing extends javax.swing.JPanel {
 
     /**
      * Creates new form ConfiguracaoLogViewSwing
@@ -37,8 +35,6 @@ public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
         btnConfiguracaoLogSalvar = new javax.swing.JButton();
         lblConfiguracaoEscolhaOLog = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         radConfiguracaoLogCSV.setText("CSV");
 
         radConfiguracaoLogJSONL.setText("JSONL");
@@ -47,23 +43,23 @@ public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
 
         lblConfiguracaoEscolhaOLog.setText("Escolha como deve sair o Log:");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+                .addGap(128, 128, 128)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblConfiguracaoEscolhaOLog)
                     .addComponent(btnConfiguracaoLogSalvar)
                     .addComponent(radConfiguracaoLogJSONL)
                     .addComponent(radConfiguracaoLogCSV))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(75, 75, 75)
                 .addComponent(lblConfiguracaoEscolhaOLog)
                 .addGap(18, 18, 18)
                 .addComponent(radConfiguracaoLogCSV)
@@ -71,36 +67,10 @@ public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
                 .addComponent(radConfiguracaoLogJSONL)
                 .addGap(18, 18, 18)
                 .addComponent(btnConfiguracaoLogSalvar)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ConfiguracaoLogViewSwing().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfiguracaoLogSalvar;
@@ -140,4 +110,7 @@ public class ConfiguracaoLogViewSwing extends javax.swing.JFrame {
     public void setRadConfiguracaoLogJSONL(JRadioButton radConfiguracaoLogJSONL) {
         this.radConfiguracaoLogJSONL = radConfiguracaoLogJSONL;
     }
+
+
+
 }

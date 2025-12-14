@@ -8,9 +8,7 @@ import repository.IEnviarNotificacaoRepository;
 import repository.EnviarNotificacaoSQLite;
 import repository.UsuarioRepositorySQLite;
 
-/**
- * Serviço que valida destinatários e utiliza o repositório para persistir.
- */
+
 public class EnviarNotificacaoService {
 
     private final IEnviarNotificacaoRepository repo;
@@ -26,45 +24,51 @@ public class EnviarNotificacaoService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    /**
-     * Valida lista de ids de destinatários e envia notificações.
-     * Retorna lista de ids inválidos (não autorizados ou inexistentes).
-     *
-     * @param idRemetente id do admin remetente
-     * @param destinatarios lista de ids destinatarios
-     * @param mensagem corpo da mensagem
-     * @return resultado contendo sucesso e lista de destinatários invalidos (vazia se nenhum)
-     * @throws Exception se ocorrer erro de persistência
-     */
-    public ResultadoEnvio enviarMultiplos(Integer idRemetente, List<Integer> destinatarios, String mensagem) throws Exception {
-        if (idRemetente == null) throw new IllegalArgumentException("Remetente inválido");
-        if (destinatarios == null || destinatarios.isEmpty()) throw new IllegalArgumentException("Nenhum destinatário informado");
-        if (mensagem == null || mensagem.trim().isEmpty()) throw new IllegalArgumentException("Mensagem vazia");
+    public ResultadoEnvio enviarMultiplos(
+            Integer idRemetente,
+            List<Integer> destinatarios,
+            String mensagem) throws Exception {
 
-        List<Integer> invalidos = new ArrayList<>();
-        List<Notificacao> paraEnviar = new ArrayList<>();
+        if (idRemetente == null) {
+            throw new IllegalArgumentException("Remetente inválido");
+        }
 
+        if (destinatarios == null || destinatarios.isEmpty()) {
+            throw new IllegalArgumentException("Nenhum destinatário informado");
+        }
+
+        if (mensagem == null || mensagem.trim().isEmpty()) {
+            throw new IllegalArgumentException("Mensagem vazia");
+        }
+
+        List<Integer> naoAutorizados = new ArrayList<>();
+        List<Notificacao> notificacoes = new ArrayList<>();
+
+        //VALIDA TODOS PRIMEIRO
         for (Integer idDest : destinatarios) {
             Usuario u = usuarioRepository.buscarPorId(idDest);
+
             if (u == null || u.getAutorizado() == null || u.getAutorizado() != 1) {
-                invalidos.add(idDest);
-            } else {
-                Notificacao n = new Notificacao(idRemetente, idDest, mensagem);
-                paraEnviar.add(n);
+                naoAutorizados.add(idDest);
             }
         }
 
-        if (paraEnviar.isEmpty()) {
-            // nenhum destinatário válido
-            return new ResultadoEnvio(false, invalidos);
+        //SE EXISTIR PELO MENOS 1 NÃO AUTORIZADO → ABORTA TUDO
+        if (!naoAutorizados.isEmpty()) {
+            return new ResultadoEnvio(false, naoAutorizados);
         }
 
-        // tenta enviar todos em transação (repo lança exception em caso de falha)
-        boolean ok = repo.enviar(paraEnviar);
-        return new ResultadoEnvio(ok, invalidos);
+        //TODOS AUTORIZADOS → CRIA NOTIFICAÇÕES
+        for (Integer idDest : destinatarios) {
+            notificacoes.add(new Notificacao(idRemetente, idDest, mensagem));
+        }
+
+        boolean sucesso = repo.enviar(notificacoes);
+        return new ResultadoEnvio(sucesso, List.of());
     }
 
     public static class ResultadoEnvio {
+
         private final boolean sucesso;
         private final List<Integer> destinatariosInvalidos;
 
@@ -73,7 +77,12 @@ public class EnviarNotificacaoService {
             this.destinatariosInvalidos = destinatariosInvalidos;
         }
 
-        public boolean isSucesso() { return sucesso; }
-        public List<Integer> getDestinatariosInvalidos() { return destinatariosInvalidos; }
+        public boolean isSucesso() {
+            return sucesso;
+        }
+
+        public List<Integer> getDestinatariosInvalidos() {
+            return destinatariosInvalidos;
+        }
     }
 }

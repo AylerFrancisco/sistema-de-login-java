@@ -42,7 +42,7 @@ public class CadastroPresenter {
         cadastroView.getBtnCadastrar().addActionListener((java.awt.event.ActionEvent e) -> {
             String nome = cadastroView.getTxtCadastroNome().getText();
             String senha = new String(cadastroView.getPsswSenhaCadastro().getPassword());
-            String confirmarSenha = new String(cadastroView.getPsswSenhaCadastro().getPassword());
+            String confirmarSenha = new String(cadastroView.getPsswSenhaConfirmar().getPassword());
             String tipoCadastro = "USER";
             Integer autorizado = 0;
             String dataCadastro = LocalDate.now().toString();

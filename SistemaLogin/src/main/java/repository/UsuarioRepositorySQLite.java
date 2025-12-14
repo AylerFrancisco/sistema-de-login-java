@@ -31,8 +31,10 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
     // Construtor privado para garantir o Singleton
     public UsuarioRepositorySQLite() {
+       logAdapter = new LogAdapterImpl();
+
         this.usuarios = listarTodos();
-        logAdapter = new LogAdapterImpl.Builder().build();
+        
     }
 
     public static synchronized UsuarioRepositorySQLite getInstance() {
@@ -90,6 +92,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
                 usuarioEncontrado.setTipoCadastro(resultSet.getString("tipoCadastro"));
                 usuarioEncontrado.setAutorizado(resultSet.getInt("autorizado"));
                 usuarioEncontrado.setDataCadastro(resultSet.getString("dataCadastro"));
+                logAdapter.log("read", usuario, usuarioEncontrado.getDataCadastro());
                 return usuarioEncontrado;
             }
 
@@ -134,6 +137,7 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
                 u.setTipoCadastro(rs.getString("tipoCadastro"));
                 u.setAutorizado(rs.getInt("autorizado"));
                 u.setDataCadastro(rs.getString("dataCadastro"));
+                logAdapter.log("read_id", u.getUsuario(), u.getDataCadastro());
                 return u;
             }
 
@@ -160,10 +164,11 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
             int linhas = stmt.executeUpdate();
 
             if (linhas > 0) {
-                // recarrega lista interna
+                
                 this.usuarios = listarTodos();
                 notifyUsuarioObservers();
-                return true;   // <===== IMPORTANTE
+                logAdapter.log("update", usuario.getUsuario(), usuario.getDataCadastro());
+                return true;   
             }
 
             return false; // nenhuma linha alterada (ID inexistente)
@@ -186,11 +191,14 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected > 0) {
-                this.usuarios = listarTodos();
-                notifyUsuarioObservers();
-                logAdapter.log("delete", "usuario", usuario);
-                return true;
-            }
+    this.usuarios = listarTodos();
+    notifyUsuarioObservers();
+
+    logAdapter.log("delete", usuario, LocalDate.now().toString());
+
+    return true;
+}
+
             return false;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
@@ -220,6 +228,8 @@ public class UsuarioRepositorySQLite implements IUsuarioRepository, UsuarioSubje
 
                     Usuario usuario = new Usuario(id, nome, senha, tipoCadastro, autorizado, dataCadastro);
                     usuarios.add(usuario);
+                    logAdapter.log("list_all", "usuario", LocalDate.now().toString());
+
                 }
             }
         } catch (Exception e) {
@@ -271,6 +281,7 @@ public Usuario buscarPorUsuario(String usuario1) {
                 String tipoCadastro = rs.getString("tipoCadastro");
                 int autorizado = rs.getInt("autorizado");
                 String dataCadastro = rs.getString("dataCadastro");
+               // logAdapter.log("read_user", u.getUsuario(), u.getDataCadastro());
 
                 return new Usuario(id, usuario, senha, tipoCadastro, autorizado, dataCadastro);
             }
@@ -289,6 +300,12 @@ public Usuario buscarPorUsuario(String usuario1) {
             PreparedStatement ps = c.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
+
+Usuario u = buscarPorId(id);
+if (u != null) {
+    logAdapter.log("authorize", u.getUsuario(), LocalDate.now().toString());
+}
+
         } catch (Exception e) {
             throw new RuntimeException("Erro ao autorizar: " + e.getMessage());
         }

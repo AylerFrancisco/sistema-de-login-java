@@ -4,9 +4,11 @@
  */
 package view;
 
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 
 /**
  *
@@ -21,7 +23,47 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
      */
     public UserHomeViewSwing() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setAlwaysOnTop(false);
+        configurarRodape();
     }
+    
+     private void configurarRodape() {
+  
+    getContentPane().removeAll();
+
+
+    getContentPane().setLayout(new java.awt.BorderLayout());
+
+
+    javax.swing.JPanel rodape = new javax.swing.JPanel(
+            new java.awt.BorderLayout()
+    );
+
+ 
+    java.awt.Font fonteAtual = txtUserLog.getFont();
+    txtUserLog.setFont(
+            new java.awt.Font(
+                    fonteAtual.getName(),
+                    java.awt.Font.BOLD,   // NEGRITO
+                    fonteAtual.getSize() + 2 // um pouco maior
+            )
+    );
+
+    txtUserLog.setEditable(false);
+    txtUserLog.setBorder(
+            javax.swing.BorderFactory.createEmptyBorder(6, 12, 6, 12)
+    );
+
+    rodape.add(txtUserLog, java.awt.BorderLayout.CENTER);
+
+   
+    getContentPane().add(rodape, java.awt.BorderLayout.SOUTH);
+
+    revalidate();
+    repaint();
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,11 +74,13 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtUserLog = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuVisualizarNotificacoesUser = new javax.swing.JMenu();
         mnuEntrada = new javax.swing.JMenuItem();
         mnuLida = new javax.swing.JMenuItem();
         mnuAlterarSenhaUser = new javax.swing.JMenu();
+        mnuAlterar = new javax.swing.JMenuItem();
         btnSair = new javax.swing.JMenu();
         mnuLogout = new javax.swing.JMenuItem();
 
@@ -58,6 +102,10 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
         jMenuBar1.add(mnuVisualizarNotificacoesUser);
 
         mnuAlterarSenhaUser.setText("Alterar Senha");
+
+        mnuAlterar.setText("Alterar");
+        mnuAlterarSenhaUser.add(mnuAlterar);
+
         jMenuBar1.add(mnuAlterarSenhaUser);
 
         btnSair.setText("Sair");
@@ -73,11 +121,17 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtUserLog, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(294, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(409, Short.MAX_VALUE)
+                .addComponent(txtUserLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -115,11 +169,13 @@ public class UserHomeViewSwing extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu btnSair;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem mnuAlterar;
     private javax.swing.JMenu mnuAlterarSenhaUser;
     private javax.swing.JMenuItem mnuEntrada;
     private javax.swing.JMenuItem mnuLida;
     private javax.swing.JMenuItem mnuLogout;
     private javax.swing.JMenu mnuVisualizarNotificacoesUser;
+    private javax.swing.JTextField txtUserLog;
     // End of variables declaration//GEN-END:variables
 
     public JMenuBar getjMenuBar1() {
@@ -186,6 +242,22 @@ public JMenuItem getMenuLidas() {
         this.mnuLogout = mnuLogout;
     }
 
+    public JTextField getTxtUserLog() {
+        return txtUserLog;
+    }
 
+    public void setTxtUserLog(JTextField txtUserLog) {
+        this.txtUserLog = txtUserLog;
+    }
+
+    public JMenuItem getMnuAlterar() {
+        return mnuAlterar;
+    }
+
+    public void setMnuAlterar(JMenuItem mnuAlterar) {
+        this.mnuAlterar = mnuAlterar;
+    }
+
+  
 
 }

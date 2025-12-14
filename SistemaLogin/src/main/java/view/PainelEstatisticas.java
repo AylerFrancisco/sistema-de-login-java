@@ -77,7 +77,7 @@ public class PainelEstatisticas extends javax.swing.JPanel {
                     .addComponent(lblPanelEstatisticasNumeroTotalDeUsuarios)
                     .addComponent(lblPanelEstatisticasNumeroUsuariosAutorizados)
                     .addComponent(lblPanelEstatiscasNumeroUsuariosPendentes))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

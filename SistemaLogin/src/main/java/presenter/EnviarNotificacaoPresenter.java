@@ -10,9 +10,7 @@ import repository.UsuarioRepositorySQLite;
 import service.EnviarNotificacaoService;
 import view.EnviarNotificacaoViewSwing;
 
-/**
- * Presenter que abre um JDialog modal com o painel de envio.
- */
+
 public class EnviarNotificacaoPresenter {
 
     private final JDialog dialog;
@@ -26,7 +24,7 @@ public class EnviarNotificacaoPresenter {
         this.usuarioRepository = UsuarioRepositorySQLite.getInstance();
         this.service = new EnviarNotificacaoService();
 
-        painel = new EnviarNotificacaoViewSwing();   // AGORA É UM JPanel
+        painel = new EnviarNotificacaoViewSwing();
 
         dialog = new JDialog(parent, "Enviar Notificação", Dialog.ModalityType.APPLICATION_MODAL);
         dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -42,7 +40,7 @@ public class EnviarNotificacaoPresenter {
 
     private void carregarUsuarios() {
         List<Usuario> todos = usuarioRepository.listarTodos();
-        painel.setUsuarios(todos); // agora lista TODOS com check, e o service valida
+        painel.setUsuarios(todos); 
     }
 
     private void configurarAcoes() {
@@ -63,12 +61,17 @@ public class EnviarNotificacaoPresenter {
                 EnviarNotificacaoService.ResultadoEnvio res
                         = service.enviarMultiplos(remetenteId, selecionados, mensagem);
 
-                if (!res.getDestinatariosInvalidos().isEmpty()) {
+                if (!res.isSucesso()) {
                     JOptionPane.showMessageDialog(dialog,
-                            "Usuários inválidos: " + res.getDestinatariosInvalidos());
+                            "Só é permitido enviar notificação para usuários autorizados.\n"
+                            + "Usuários não autorizados selecionados: " + res.getDestinatariosInvalidos(),
+                            "Envio bloqueado",
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                    return;
                 }
 
-                JOptionPane.showMessageDialog(dialog, "Notificações enviadas!");
+                JOptionPane.showMessageDialog(dialog, "Notificações enviadas com sucesso!");
                 dialog.dispose();
 
             } catch (Exception ex) {
